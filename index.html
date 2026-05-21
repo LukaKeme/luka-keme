@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luka Kemežytė | Clinical Psychologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:      #2d4a35;
+      --green-mid:  #3d6347;
+      --sage:       #7a9e82;
+      --cream:      #f5f0e8;
+      --sand:       #e8dcc8;
+      --sand-dark:  #c8b89a;
+      --warm:       #a8896a;
+      --text:       #1e2e22;
+      --text-light: #5a6e60;
+      --white:      #fdfaf5;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --max: 1100px;
+      --gap: clamp(3rem, 6vw, 6rem);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem clamp(1.5rem, 5vw, 3rem);
+      background: rgba(245,240,232,0.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200,184,154,0.3);
+    }
+    .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--green); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-lang { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand-dark); cursor: pointer; border: 1px solid var(--sand-dark); padding: 0.3rem 0.7rem; border-radius: 2rem; background: none; font-family: var(--font-body); transition: all 0.2s; }
+    .nav-lang:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-top: 5rem; max-width: var(--max); margin: 0 auto; padding-left: clamp(1.5rem, 5vw, 3rem); padding-right: clamp(1.5rem, 5vw, 3rem); gap: 4rem; }
+    .hero-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--sage); }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--green); margin-bottom: 1.8rem; letter-spacing: -0.01em; }
+    .hero-title em { font-style: italic; color: var(--warm); }
+    .hero-sub { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; max-width: 42ch; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; }
+    .hero-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+    .hero-image { position: relative; display: flex; justify-content: center; align-items: flex-end; }
+    .hero-photo-wrap { position: relative; width: min(380px, 90%); }
+    .hero-photo-bg { position: absolute; inset: -1.5rem -1rem 1.5rem 1rem; background: var(--sand); border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; z-index: 0; }
+    .hero-photo { position: relative; z-index: 1; width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block; }
+    .hero-badge { position: absolute; bottom: -1rem; right: -1rem; z-index: 2; background: var(--white); border: 1px solid var(--sand); border-radius: 1rem; padding: 0.8rem 1.2rem; font-size: 0.78rem; color: var(--text-light); box-shadow: 0 4px 20px rgba(45,74,53,0.08); line-height: 1.5; }
+    .hero-badge strong { display: block; color: var(--green); font-weight: 500; }
+
+    /* SECTIONS */
+    section { padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
+    .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--sage); display: block; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--green); line-height: 1.15; margin-bottom: 1.5rem; }
+    .section-title em { font-style: italic; color: var(--warm); }
+
+    /* ABOUT */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about-aside { position: sticky; top: 6rem; }
+    .about-credentials { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .credential { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 1.2rem; background: var(--cream); border-left: 2px solid var(--sage); border-radius: 0 6px 6px 0; }
+    .credential-title { font-size: 0.82rem; font-weight: 500; color: var(--green); }
+    .credential-sub { font-size: 0.76rem; color: var(--text-light); }
+    .about-body p { font-size: 1.02rem; color: var(--text-light); line-height: 1.85; margin-bottom: 1.4rem; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { color: var(--green); font-weight: 500; }
+    .about-languages { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .lang-tag { font-size: 0.76rem; padding: 0.3rem 0.8rem; border-radius: 2rem; border: 1px solid var(--sand-dark); color: var(--text-light); }
+
+    /* APPROACH */
+    #approach { background: var(--cream); }
+    .approach-intro { max-width: 65ch; font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 3.5rem; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .pillar { padding: 2rem; background: var(--white); border-radius: 12px; border: 1px solid var(--sand); transition: transform 0.2s, box-shadow 0.2s; }
+    .pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(45,74,53,0.08); }
+    .pillar-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--sand-dark); line-height: 1; margin-bottom: 1rem; }
+    .pillar-title { font-size: 1rem; font-weight: 500; color: var(--green); margin-bottom: 0.6rem; }
+    .pillar-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+
+    /* PRICING */
+    #pricing { background: var(--green); }
+    #pricing .section-label { color: var(--sage); }
+    #pricing .section-label::before { background: var(--sage); }
+    #pricing .section-title { color: var(--cream); }
+    .pricing-sub { font-size: 1rem; color: rgba(245,240,232,0.7); max-width: 55ch; margin-bottom: 3rem; line-height: 1.8; }
+    .pricing-info-block { max-width: 640px; background: rgba(245,240,232,0.08); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 2.5rem; }
+    .pricing-info-block p { font-size: 1rem; color: rgba(245,240,232,0.75); line-height: 1.85; margin-bottom: 1rem; }
+    .pricing-info-block p:last-child { margin-bottom: 0; }
+    .pricing-cta { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.5rem; background: var(--cream); color: var(--green); padding: 0.85rem 1.8rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
+    .pricing-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* RESOURCES */
+    #resources { background: var(--white); }
+    .resources-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 4rem; margin-top: 2rem; }
+    .blog-coming { padding: 3rem; border: 1px dashed var(--sand-dark); border-radius: 12px; text-align: center; color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
+    .blog-coming strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
+    .resource-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .resource-link { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; background: var(--cream); border-radius: 8px; text-decoration: none; border: 1px solid var(--sand); transition: border-color 0.2s, transform 0.2s; }
+    .resource-link:hover { border-color: var(--sage); transform: translateX(3px); }
+    .resource-link-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
+    .resource-link-title { display: block; font-weight: 500; color: var(--green); margin-bottom: 0.1rem; font-size: 0.85rem; }
+    .resource-link-sub { color: var(--text-light); font-size: 0.78rem; }
+    .resources-section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 1rem; }
+
+    /* CONTACT */
+    #contact { background: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-info p { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-detail { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--text-light); }
+    .contact-detail-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-detail a { color: var(--green); text-decoration: none; font-weight: 500; }
+    .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: background 0.25s, transform 0.2s; }
+    .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+    form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.4rem; }
+    input, textarea, select { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--sand-dark); border-radius: 8px; background: var(--white); font-family: var(--font-body); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(122,158,130,0.15); }
+    textarea { resize: vertical; min-height: 130px; }
+    .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.95rem 2.2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; align-self: flex-start; }
+    .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer { background: var(--text); color: rgba(245,240,232,0.5); padding: 2.5rem clamp(1.5rem, 5vw, 3rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
+
+    /* LANG */
+    .lt { display: none; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    .hero-title    { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub      { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-cta      { animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-image    { animation: fadeUp 0.8s 0.15s ease both; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; padding-bottom: 3rem; gap: 2.5rem; }
+      .hero-image { order: -1; }
+      .hero-photo-wrap { width: min(260px, 80%); margin: 0 auto; }
+      .about-grid, .contact-grid, .resources-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-aside { position: static; }
+      .pillars { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Luka Kemežytė</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-lang" onclick="toggleLang()">LT</button>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:0; max-width:100%;">
+    <div class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow en">Clinical Psychologist · Online</p>
+        <p class="hero-eyebrow lt">Klinikinė psichologė · Internetu</p>
+        <h1 class="hero-title en">Therapy that starts<br />with <em>you</em>,<br />not your diagnosis.</h1>
+        <h1 class="hero-title lt">Terapija, kuri prasideda<br />nuo <em>tavęs</em>,<br />ne nuo diagnozės.</h1>
+        <p class="hero-sub en">I work with people navigating emotional turbulence, life transitions, and the challenge of feeling at home — in themselves and in the world. Sessions in English and Lithuanian, online.</p>
+        <p class="hero-sub lt">Dirbu su žmonėmis, kurie susiduria su emociniais sunkumais, gyvenimo pokyčiais ir ieškojimu vietos pasaulyje. Konsultacijos lietuvių ir anglų kalbomis, internetu.</p>
+        <a href="#contact" class="hero-cta en">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="#contact" class="hero-cta lt">Susisiekite <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="hero-image">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-bg"></div>
+          <img src="photo.jpg" alt="Luka Kemežytė" class="hero-photo" />
+          <div class="hero-badge">
+            <strong class="en">Sessions in English & Lithuanian</strong>
+            <strong class="lt">Anglų ir lietuvių kalbomis</strong>
+            <span class="en">Online · Worldwide</span>
+            <span class="lt">Internetu · Visame pasaulyje</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-aside">
+          <p class="section-label en">About</p>
+          <p class="section-label lt">Apie mane</p>
+          <h2 class="section-title en">Research-informed.<br /><em>Deeply human.</em></h2>
+          <h2 class="section-title lt">Mokslu grįsta.<br /><em>Giliai žmogiška.</em></h2>
+          <div class="about-credentials">
+            <div class="credential">
+              <span class="credential-title">MSc Clinical Psychology</span>
+              <span class="credential-sub">Vilnius University · Distinction</span>
+            </div>
+            <div class="credential">
+              <span class="credential-title">BSc Psychology</span>
+              <span class="credential-sub">University of Exeter · 2.1 (BPS accredited)</span>
+            </div>
+            <div class="credential">
+              <span class="credential-title">Researcher · ENBER</span>
+              <span class="credential-sub">European Network for Bipolar Emotion Regulation</span>
+            </div>
+            <div class="credential">
+              <span class="credential-title">Training in Existential-Humanistic Therapy</span>
+              <span class="credential-sub">Hepi.lt · In progress</span>
+            </div>
+          </div>
+          <div class="about-languages">
+            <span class="lang-tag">🇱🇹 Lithuanian</span>
+            <span class="lang-tag">🇬🇧 English</span>
+          </div>
+        </div>
+        <div class="about-body">
+          <p class="en">I'm Luka — a clinical psychologist who has lived and worked across Lithuania, the UK, and Germany. I'm drawn to the questions that don't have easy answers: how we carry difficult experiences, how we find meaning in uncertain times, how we learn to be with ourselves.</p>
+          <p class="lt">Aš esu Luka — klinikinė psichologė, gyvenusi ir dirbusi Lietuvoje, Jungtinėje Karalystėje ir Vokietijoje. Mane traukia klausimai, į kuriuos nėra paprastų atsakymų.</p>
+
+          <p class="en">My work is grounded in existential-humanistic therapy — an approach that treats you as the expert on your own life. I don't bring a pre-written map to our sessions. I bring curiosity, honesty, and a genuine belief that understanding yourself more fully is one of the most useful things a person can do.</p>
+          <p class="lt">Mano darbas grindžiamas egzistenciniu-humanistiniu požiūriu — metodu, kuris tave laiko savo gyvenimo ekspertu.</p>
+
+          <p class="en">I also carry lived experience of neurodivergence — knowing what it means to have a nervous system that works differently, and how important it is to understand and accept your own particular way of functioning, rather than fighting it.</p>
+          <p class="lt">Turiu ir asmeninės patirties su neuroskirtingumu — žinau, ką reiškia turėti nervų sistemą, kuri veikia kitaip, ir kaip svarbu tai priimti.</p>
+
+          <p class="en">Alongside my practice, I am an active researcher at ENBER — the European Network for Bipolar Emotion Regulation — working with the University of Exeter on how emotion regulation strategies relate to mood instability. That scientific curiosity comes directly into my clinical work.</p>
+          <p class="lt">Be praktikos, esu aktyvus ENBER tyrėjas, dirbantis su Ekseterio universitetu emocijų reguliavimo ir nuotaikos nestabilumo srityje.</p>
+
+          <p class="en">I love to travel, to explore new cities, and to understand how people build their lives across cultures and borders. It's part of why I feel genuinely at home working with people who are internationally mobile — I understand that particular restlessness, and the richness it brings.</p>
+          <p class="lt">Myliu keliones ir naujų vietų pažinimą. Tai iš dalies paaiškina, kodėl jaučiuosi tikrai savo vietoje dirbdama su tarptautiniu gyvenimo būdu gyvenančiais žmonėmis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="section-inner">
+      <p class="section-label en">How I work</p>
+      <p class="section-label lt">Kaip dirbu</p>
+      <h2 class="section-title en">You already know<br />what <em>matters</em>.</h2>
+      <h2 class="section-title lt">Tu jau žinai,<br />kas <em>svarbu</em>.</h2>
+      <p class="approach-intro en">My role is not to diagnose or to fix. It's to sit alongside you and help you hear yourself more clearly. Therapy here is a real relationship — not an evaluation — and it works best when we approach it as a long-term collaboration.</p>
+      <p class="approach-intro lt">Mano vaidmuo — ne diagnozuoti ar taisyti. Sėdėti šalia ir padėti tau geriau išgirsti save patį. Terapija čia yra tikras ryšys, ne vertinimas.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title en">You set the agenda</div>
+          <div class="pillar-title lt">Tu nustato darbotvarkę</div>
+          <p class="pillar-text en">We begin with what you think the problem is — not a framework I impose. Diagnoses can be useful tools, but they don't define who you are or what's possible for you.</p>
+          <p class="pillar-text lt">Pradedame nuo to, ką tu laikai problema — ne nuo mano primetamos struktūros. Diagnozės gali būti naudingos, tačiau jos neapibrėžia tavęs.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title en">Emotions as information</div>
+          <div class="pillar-title lt">Emocijos kaip informacija</div>
+          <p class="pillar-text en">Difficult states — anxiety, mood swings, numbness — are not problems to be eliminated. They're signals worth understanding. Learning to be with all of your emotional life, not just the comfortable parts, is central to what we do.</p>
+          <p class="pillar-text lt">Sudėtingos būsenos — nerimas, nuotaikų svyravimai — nėra problemos, kurias reikia panaikinti. Tai signalai, verti dėmesio ir supratimo.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title en">Depth over speed</div>
+          <div class="pillar-title lt">Gylis, ne greitis</div>
+          <p class="pillar-text en">I work long-term. Real change in how you relate to yourself and others takes time, and it's worth taking that time seriously. I'm not interested in quick fixes — I'm interested in you.</p>
+          <p class="pillar-text lt">Dirbu ilgalaikiai. Tikri pokyčiai, kaip tu santykiauji su savimi ir kitais, užtrunka — ir tai verta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-inner">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title en">Let's talk about<br /><em>what works for you.</em></h2>
+      <h2 class="section-title lt">Aptarkime,<br /><em>kas tinka tau.</em></h2>
+      <p class="pricing-sub en">I believe therapy should be accessible. Fees are discussed individually before we begin — based on your situation, location, and what we'll be working on together.</p>
+      <p class="pricing-sub lt">Manau, kad terapija turėtų būti prieinama. Įkainiai aptariami individualiai prieš pradedant — atsižvelgiant į tavo situaciją ir poreikius.</p>
+      <div class="pricing-info-block">
+        <p class="en">Each session is 50 minutes and takes place online, via video call. I offer sessions in both English and Lithuanian.</p>
+        <p class="lt">Kiekviena sesija trunka 50 minučių ir vyksta internetu, vaizdo skambučiu. Konsultuoju lietuvių ir anglų kalbomis.</p>
+        <p class="en">Before we begin, I offer a free 20-minute introductory call — so we can both get a sense of whether working together feels right. There's no obligation after that conversation.</p>
+        <p class="lt">Prieš pradedant siūlau nemokamą 20 minučių pažintinį pokalbį — kad abu galėtume pajusti, ar darbas kartu tinka. Jokių įsipareigojimų po to pokalbio.</p>
+        <a href="https://calendly.com/luka-keme/30min" target="_blank" class="pricing-cta en">Book a free intro call →</a>
+        <a href="https://calendly.com/luka-keme/30min" target="_blank" class="pricing-cta lt">Užsiregistruoti nemokamam pokalbiui →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="section-inner">
+      <p class="section-label en">Blog & Resources</p>
+      <p class="section-label lt">Tinklaraštis ir šaltiniai</p>
+      <h2 class="section-title en">Writing & <em>useful links</em>.</h2>
+      <h2 class="section-title lt">Straipsniai ir <em>naudingi šaltiniai</em>.</h2>
+      <div class="resources-grid">
+        <div>
+          <p class="resources-section-title en">From the blog</p>
+          <p class="resources-section-title lt">Iš tinklaraščio</p>
+          <div class="blog-coming">
+            <strong class="en">Writing coming soon</strong>
+            <strong class="lt">Straipsniai — greitai</strong>
+            <span class="en">I'll be writing about emotion regulation, expat mental health, and what existential therapy actually looks like in practice.</span>
+            <span class="lt">Rašysiu apie emocijų reguliavimą, emigrantų psichinę sveikatą ir egzistencinę terapiją praktikoje.</span>
+          </div>
+        </div>
+        <div>
+          <p class="resources-section-title en">Useful resources</p>
+          <p class="resources-section-title lt">Naudingi šaltiniai</p>
+          <div class="resource-links">
+            <a href="https://www.enber.eu" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🔬</div>
+              <div class="resource-link-text">
+                <span class="resource-link-title">ENBER Network</span>
+                <span class="resource-link-sub">European research on bipolar emotion regulation</span>
+              </div>
+            </a>
+            <a href="https://www.mind.org.uk" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🧠</div>
+              <div class="resource-link-text">
+                <span class="resource-link-title">Mind UK</span>
+                <span class="resource-link-sub">Mental health information and support</span>
+              </div>
+            </a>
+            <a href="https://www.psichologai.lt" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🇱🇹</div>
+              <div class="resource-link-text">
+                <span class="resource-link-title">LPA</span>
+                <span class="resource-link-sub">Lithuanian Psychological Association</span>
+              </div>
+            </a>
+            <a href="https://www.sidabrine-linija.lt" target="_blank" class="resource-link">
+              <div class="resource-link-icon">📞</div>
+              <div class="resource-link-text">
+                <span class="resource-link-title">Sidabrinė Linija</span>
+                <span class="resource-link-sub">Support line for the elderly in Lithuania</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label en">Contact</p>
+      <p class="section-label lt">Kontaktai</p>
+      <h2 class="section-title en">Let's see if we're<br />a good <em>fit</em>.</h2>
+      <h2 class="section-title lt">Pažiūrėkime, ar<br /><em>tinkame</em> vienas kitam.</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="en">The first step is simple — send me a message or book a free 20-minute intro call. I'll get back to you within 2 working days.</p>
+          <p class="lt">Pirmas žingsnis paprastas — parašykite žemiau arba užsiregistruokite nemokamam pokalbiui. Atsakysiu per 2 darbo dienas.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉</div>
+              <a href="mailto:luka.keme@gmail.com">luka.keme@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🌍</div>
+              <span class="en">Online worldwide · Sessions in English & Lithuanian</span>
+              <span class="lt">Internetu · Anglų ir lietuvių kalbomis</span>
+            </div>
+          </div>
+          <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en">📅 Book a free intro call</a>
+          <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
+        </div>
+        <form name="contact" netlify>
+          <div class="form-row">
+            <div>
+              <label for="name" class="en">Your name</label>
+              <label for="name2" class="lt">Jūsų vardas</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email" class="en">Email</label>
+              <label for="email2" class="lt">El. paštas</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div>
+            <label for="language" class="en">Preferred language</label>
+            <label for="language2" class="lt">Pageidaujama kalba</label>
+            <select id="language" name="language">
+              <option value="english">English</option>
+              <option value="lithuanian">Lithuanian / Lietuvių</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="en">What brings you here?</label>
+            <label for="message2" class="lt">Kas jus čia atveda?</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="form-submit en">Send message</button>
+          <button type="submit" class="form-submit lt">Siųsti žinutę</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Luka Kemežytė</span>
+    <span>Clinical Psychologist · Online · luka-keme.com</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script>
+    let lang = 'en';
+    function toggleLang() {
+      lang = lang === 'en' ? 'lt' : 'en';
+      document.querySelector('.nav-lang').textContent = lang === 'en' ? 'LT' : 'EN';
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = lang === 'en' ? '' : 'none';
+      });
+      document.querySelectorAll('.lt').forEach(el => {
+        el.style.display = lang === 'lt' ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
