@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,13 +46,15 @@
     .nav-lang:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
 
     /* HERO */
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-top: 5rem; max-width: var(--max); margin: 0 auto; padding-left: clamp(1.5rem, 5vw, 3rem); padding-right: clamp(1.5rem, 5vw, 3rem); gap: 4rem; }
-    .hero-eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--sage); }
-    .hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--green); margin-bottom: 1.8rem; letter-spacing: -0.01em; }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding-top: 5rem; padding-bottom: 5rem; max-width: var(--max); margin: 0 auto; padding-left: clamp(1.5rem, 5vw, 3rem); padding-right: clamp(1.5rem, 5vw, 3rem); gap: 4rem; }
+    .hero-text { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-eyebrow { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.4rem; margin-top: 2rem; display: flex; align-items: center; gap: 1.2rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--sage); flex-shrink: 0; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.15; color: var(--green); margin-bottom: 1.8rem; letter-spacing: -0.01em; }
     .hero-title em { font-style: italic; color: var(--warm); }
-    .hero-sub { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; max-width: 42ch; margin-bottom: 2.5rem; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; }
+    .hero-sub { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--text-light); line-height: 1.8; max-width: 42ch; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-flex; flex-direction: row; align-items: center; gap: 0.6rem; background: var(--green); color: var(--cream); padding: 0.85rem 1.8rem; border-radius: 2rem; text-decoration: none; font-size: clamp(0.8rem, 1.5vw, 0.95rem); font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; white-space: nowrap; align-self: flex-start; }
+    .hero-cta svg { display: inline-block; flex-shrink: 0; vertical-align: middle; position: relative; top: -0.05em; }
     .hero-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
     .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-photo-wrap { position: relative; width: min(380px, 90%); }
@@ -67,8 +70,8 @@
     /* SECTIONS */
     section { padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
     .section-inner { max-width: var(--max); margin: 0 auto; }
-    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem; }
-    .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--sage); display: block; }
+    .section-label { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 1.2rem; }
+    .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--sage); display: block; flex-shrink: 0; }
     .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--green); line-height: 1.15; margin-bottom: 1.5rem; }
     .section-title em { font-style: italic; color: var(--warm); }
 
@@ -80,7 +83,7 @@
     .credential { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 1.2rem; background: var(--cream); border-left: 2px solid var(--sage); border-radius: 0 6px 6px 0; }
     .credential-title { font-size: 0.82rem; font-weight: 500; color: var(--green); }
     .credential-sub { font-size: 0.76rem; color: var(--text-light); }
-    .about-body p { font-size: 1.02rem; color: var(--text-light); line-height: 1.85; margin-bottom: 1.4rem; }
+    .about-body p { font-size: clamp(0.95rem, 1.4vw, 1.02rem); color: var(--text-light); line-height: 1.85; margin-bottom: 1.4rem; }
     .about-body p:last-child { margin-bottom: 0; }
     .about-body strong { color: var(--green); font-weight: 500; }
     .about-languages { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -93,7 +96,7 @@
 
     /* APPROACH */
     #approach { background: var(--cream); }
-    .approach-intro { max-width: 65ch; font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 3.5rem; }
+    .approach-intro { max-width: 65ch; font-size: clamp(0.95rem, 1.4vw, 1.05rem); color: var(--text-light); line-height: 1.85; margin-bottom: 3.5rem; }
     .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .pillar { padding: 2rem; background: var(--white); border-radius: 12px; border: 1px solid var(--sand); transition: transform 0.2s, box-shadow 0.2s; }
     .pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(45,74,53,0.08); }
@@ -165,17 +168,42 @@
     .hero-image    { animation: fadeUp 0.8s 0.15s ease both; }
 
     /* MOBILE */
+    /* TABLET — 1024px */
+    @media (max-width: 1024px) {
+      .hero { gap: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr 1.2fr; gap: 3rem; }
+      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .resources-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+
+    /* MOBILE — 768px */
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; padding-bottom: 3rem; gap: 2.5rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; padding-bottom: 3rem; gap: 2rem; }
       .hero-image { order: -1; }
-      .hero-photo-wrap { width: min(260px, 80%); margin: 0 auto; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .resources-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo-wrap { width: min(240px, 75%); margin: 0 auto; }
+      .hero-sub { max-width: 100%; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-aside { position: static; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .resources-grid { grid-template-columns: 1fr; gap: 2rem; }
       .pillars { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      footer { flex-direction: column; text-align: center; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+      .hero-badge { right: 0; font-size: 0.72rem; padding: 0.6rem 0.9rem; }
+      footer { flex-direction: column; text-align: center; gap: 0.4rem; }
+    }
+
+    /* SMALL MOBILE — 480px */
+    @media (max-width: 480px) {
+      .hero-photo-wrap { width: min(200px, 70%); }
+      .pillar { padding: 1.5rem; }
+      .about-credentials { gap: 0.7rem; }
+      .credential { padding: 0.8rem 1rem; }
+      .dj-photo-wrap { margin-top: 1.5rem; }
+      .resource-link { padding: 0.8rem 1rem; }
+      .contact-detail { font-size: 0.82rem; }
     }
   </style>
 </head>
@@ -188,7 +216,6 @@
       <ul class="nav-links">
         <li><a href="#about" class="en">About</a><a href="#about" class="lt">Apie</a></li>
         <li><a href="#approach" class="en">Approach</a><a href="#approach" class="lt">Metodas</a></li>
-        <li><a href="#pricing" class="en">Pricing</a><a href="#pricing" class="lt">Kainos</a></li>
         <li><a href="#resources" class="en">Resources</a><a href="#resources" class="lt">Šaltiniai</a></li>
         <li><a href="#contact" class="en">Contact</a><a href="#contact" class="lt">Kontaktai</a></li>
       </ul>
@@ -200,14 +227,14 @@
   <section style="padding:0; max-width:100%;">
     <div class="hero">
       <div class="hero-text">
-        <p class="hero-eyebrow en">Clinical Psychologist · Online</p>
-        <p class="hero-eyebrow lt">Klinikinė psichologė · Internetu</p>
-        <h1 class="hero-title en">Therapy that starts<br />with <em>you</em>,<br />not your diagnosis.</h1>
-        <h1 class="hero-title lt">Terapija, kuri prasideda<br />nuo <em>tavęs</em>,<br />ne nuo diagnozės.</h1>
-        <p class="hero-sub en">I work with people navigating emotional turbulence, life transitions, and the challenge of feeling at home — in themselves and in the world. Sessions in English and Lithuanian, online.</p>
-        <p class="hero-sub lt">Dirbu su žmonėmis, kurie susiduria su emociniais sunkumais, gyvenimo pokyčiais ir ieškojimu vietos pasaulyje. Konsultacijos lietuvių ir anglų kalbomis, internetu.</p>
-        <a href="#contact" class="hero-cta en">Get in touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a href="#contact" class="hero-cta lt">Susisiekite <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <p class="hero-eyebrow en">Clinical Psychologist · Online · In person in Kaunas, Lithuania</p>
+        <p class="hero-eyebrow lt">Klinikinė psichologė · Internetu · Arba gyvai Kaune</p>
+        <h1 class="hero-title en">When your inner world feels <em>too much</em>, too little, or hard to understand.</h1>
+        <h1 class="hero-title lt">Kai viduje kažko lyg <em>per daug</em>, per mažai arba sunku suprasti, kas vyksta.</h1>
+        <p class="hero-sub en">People come to therapy with many different experiences — anxiety, depression, grief, burnout, emotional intensity, relationship struggles, uncertainty, or something that is not yet easy to name. The work begins wherever you are: whether it feels like distress, confusion, transition, curiosity, or just a simple wish for something to be different.</p>
+        <p class="hero-sub lt">Žmonės į terapiją ateina dėl įvairiausių priežasčių — nerimo, depresijos, gedulo, perdegimo, patiriamų emocijų intensyvumo, santykių sunkumų, neapibrėžtumo ir daug kitų dalykų, kuriuos dažnai sunku ir įvardinti. Terapinis darbas prasideda nuo ten, kur šiuo metu esate: ar tai būtų sunkumas, pasimetimas, pokyčiai, smalsumas ar tiesiog noras, kad kažkas būtų kitaip.</p>
+        <a href="#contact" class="hero-cta en"><span>Get in touch</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="#contact" class="hero-cta lt"><span>Susisiekite</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
       <div class="hero-image">
         <div class="hero-photo-wrap">
@@ -256,10 +283,9 @@
             <span class="lang-tag">🇱🇹 Lithuanian</span>
             <span class="lang-tag">🇬🇧 English</span>
           </div>
-          <div class="dj-photo-wrap">
+          <div class="dj-photo-wrap en">
             <img src="LukaDJ.JPG" alt="Luka DJing" />
             <div class="dj-caption en">Also a DJ — music as another way of being present</div>
-            <div class="dj-caption lt">Taip pat DJ — muzika kaip kitas būdas būti čia</div>
           </div>
         </div>
 
@@ -314,26 +340,6 @@
           <p class="pillar-text en">I work long-term. Real change in how you relate to yourself and others takes time, and it's worth taking that time seriously. I'm not interested in quick fixes — I'm interested in you.</p>
           <p class="pillar-text lt">Dirbu ilgalaikiai. Tikri pokyčiai, kaip santykiauji su savimi ir kitais, užtrunka — ir tai verta rimtai traktuoti. Mane domina ne greiti sprendimai, o tu.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="section-inner">
-      <p class="section-label en">Pricing</p>
-      <p class="section-label lt">Kainos</p>
-      <h2 class="section-title en">Let's talk about<br /><em>what works for you.</em></h2>
-      <h2 class="section-title lt">Aptarkime,<br /><em>kas tinka tau.</em></h2>
-      <p class="pricing-sub en">I believe therapy should be accessible. Fees are discussed individually before we begin — based on your situation, location, and what we'll be working on together.</p>
-      <p class="pricing-sub lt">Manau, kad terapija turėtų būti prieinama. Įkainiai aptariami individualiai prieš pradedant — atsižvelgiant į tavo situaciją, vietą ir tai, ką dirbsime kartu.</p>
-      <div class="pricing-info-block">
-        <p class="en">Each session is 50 minutes and takes place online, via video call. I offer sessions in both English and Lithuanian.</p>
-        <p class="lt">Kiekviena sesija trunka 50 minučių ir vyksta internetu, vaizdo skambučiu. Konsultuoju lietuvių ir anglų kalbomis.</p>
-        <p class="en">Before we begin, I offer a free 20-minute introductory call — so we can both get a sense of whether working together feels right. There's no obligation after that conversation.</p>
-        <p class="lt">Prieš pradedant siūlau nemokamą 20 minučių pažintinį pokalbį — kad abu galėtume pajusti, ar darbas kartu tinka. Jokių įsipareigojimų po to pokalbio.</p>
-        <div class="pricing-clinic-note en">Prefer to meet in person? I also see clients at <a href="https://konsultuojam.lt" target="_blank">Psichoterapijos Konsultacijų Centras</a> in Kaunas.</div>
-        <div class="pricing-clinic-note lt">Norite susitikti gyvai? Taip pat konsultuoju <a href="https://konsultuojam.lt" target="_blank">Psichoterapijos Konsultacijų Centre</a> Kaune.</div>
       </div>
     </div>
   </section>
