@@ -496,8 +496,12 @@
     function toggleLang() {
       lang = lang === 'en' ? 'lt' : 'en';
       document.querySelector('.nav-lang').textContent = lang === 'en' ? 'LT' : 'EN';
-      document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-      document.querySelectorAll('.lt').forEach(el => el.style.display = lang === 'lt' ? '' : 'none');
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = lang === 'en' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
+      });
+      document.querySelectorAll('.lt').forEach(el => {
+        el.style.display = lang === 'lt' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
+      });
     }
   </script>
 </body>
