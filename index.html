@@ -37,10 +37,11 @@
       border-bottom: 1px solid rgba(200,184,154,0.3);
     }
     .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--green); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green); }
-    .nav-lang { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand-dark); cursor: pointer; border: 1px solid var(--sand-dark); padding: 0.3rem 0.7rem; border-radius: 2rem; background: none; font-family: var(--font-body); transition: all 0.2s; }
+    .nav-lang { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand-dark); cursor: pointer; border: 1px solid var(--sand-dark); padding: 0.3rem 0.7rem; border-radius: 2rem; background: none; font-family: var(--font-body); transition: all 0.2s; white-space: nowrap; }
     .nav-lang:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
 
     /* HERO */
@@ -52,10 +53,14 @@
     .hero-sub { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; max-width: 42ch; margin-bottom: 2.5rem; }
     .hero-cta { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; }
     .hero-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
-    .hero-image { position: relative; display: flex; justify-content: center; align-items: flex-end; }
+    .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
     .hero-photo-wrap { position: relative; width: min(380px, 90%); }
     .hero-photo-bg { position: absolute; inset: -1.5rem -1rem 1.5rem 1rem; background: var(--sand); border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; z-index: 0; }
-    .hero-photo { position: relative; z-index: 1; width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block; }
+    .hero-photo {
+      position: relative; z-index: 1; width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; object-position: 60% top;
+      border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block;
+    }
     .hero-badge { position: absolute; bottom: -1rem; right: -1rem; z-index: 2; background: var(--white); border: 1px solid var(--sand); border-radius: 1rem; padding: 0.8rem 1.2rem; font-size: 0.78rem; color: var(--text-light); box-shadow: 0 4px 20px rgba(45,74,53,0.08); line-height: 1.5; }
     .hero-badge strong { display: block; color: var(--green); font-weight: 500; }
 
@@ -81,6 +86,11 @@
     .about-languages { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .lang-tag { font-size: 0.76rem; padding: 0.3rem 0.8rem; border-radius: 2rem; border: 1px solid var(--sand-dark); color: var(--text-light); }
 
+    /* DJ photo */
+    .dj-photo-wrap { margin-top: 2rem; position: relative; border-radius: 12px; overflow: hidden; }
+    .dj-photo-wrap img { width: 100%; height: auto; display: block; filter: brightness(0.92); }
+    .dj-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(30,46,34,0.75)); color: rgba(245,240,232,0.9); font-size: 0.78rem; padding: 1.5rem 1rem 0.8rem; letter-spacing: 0.05em; }
+
     /* APPROACH */
     #approach { background: var(--cream); }
     .approach-intro { max-width: 65ch; font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 3.5rem; }
@@ -99,22 +109,26 @@
     .pricing-sub { font-size: 1rem; color: rgba(245,240,232,0.7); max-width: 55ch; margin-bottom: 3rem; line-height: 1.8; }
     .pricing-info-block { max-width: 640px; background: rgba(245,240,232,0.08); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 2.5rem; }
     .pricing-info-block p { font-size: 1rem; color: rgba(245,240,232,0.75); line-height: 1.85; margin-bottom: 1rem; }
-    .pricing-info-block p:last-child { margin-bottom: 0; }
+    .pricing-info-block p:last-of-type { margin-bottom: 0; }
+    .pricing-clinic-note { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(245,240,232,0.15); font-size: 0.88rem; color: rgba(245,240,232,0.55); line-height: 1.7; }
+    .pricing-clinic-note a { color: rgba(245,240,232,0.75); text-decoration: underline; text-underline-offset: 3px; }
     .pricing-cta { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.5rem; background: var(--cream); color: var(--green); padding: 0.85rem 1.8rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
     .pricing-cta:hover { opacity: 0.9; transform: translateY(-1px); }
 
     /* RESOURCES */
     #resources { background: var(--white); }
-    .resources-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 4rem; margin-top: 2rem; }
-    .blog-coming { padding: 3rem; border: 1px dashed var(--sand-dark); border-radius: 12px; text-align: center; color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
-    .blog-coming strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
+    .resources-intro { max-width: 60ch; font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2.5rem; }
+    .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .resources-section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 1.2rem; }
     .resource-links { display: flex; flex-direction: column; gap: 0.8rem; }
     .resource-link { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; background: var(--cream); border-radius: 8px; text-decoration: none; border: 1px solid var(--sand); transition: border-color 0.2s, transform 0.2s; }
     .resource-link:hover { border-color: var(--sage); transform: translateX(3px); }
-    .resource-link-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
-    .resource-link-title { display: block; font-weight: 500; color: var(--green); margin-bottom: 0.1rem; font-size: 0.85rem; }
-    .resource-link-sub { color: var(--text-light); font-size: 0.78rem; }
-    .resources-section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 1rem; }
+    .resource-link.placeholder { opacity: 0.55; cursor: default; pointer-events: none; border-style: dashed; }
+    .resource-link-icon { width: 2.2rem; height: 2.2rem; background: var(--sand); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
+    .resource-link-title { display: block; font-weight: 500; color: var(--green); margin-bottom: 0.15rem; font-size: 0.85rem; }
+    .resource-link-sub { color: var(--text-light); font-size: 0.76rem; line-height: 1.5; }
+    .blog-coming { padding: 2.5rem; border: 1px dashed var(--sand-dark); border-radius: 12px; color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
+    .blog-coming strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
 
     /* CONTACT */
     #contact { background: var(--cream); }
@@ -122,7 +136,7 @@
     .contact-info p { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; }
     .contact-details { display: flex; flex-direction: column; gap: 0.8rem; }
     .contact-detail { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--text-light); }
-    .contact-detail-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-detail-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; }
     .contact-detail a { color: var(--green); text-decoration: none; font-weight: 500; }
     .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: background 0.25s, transform 0.2s; }
     .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
@@ -136,10 +150,10 @@
     .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
 
     /* FOOTER */
-    footer { background: var(--text); color: rgba(245,240,232,0.5); padding: 2.5rem clamp(1.5rem, 5vw, 3rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+    footer { background: var(--text); color: rgba(245,240,232,0.5); padding: 2.5rem clamp(1.5rem, 5vw, 3rem); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
     .footer-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
 
-    /* LANG */
+    /* LANG TOGGLE */
     .lt { display: none; }
 
     /* ANIMATIONS */
@@ -155,12 +169,13 @@
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; padding-bottom: 3rem; gap: 2.5rem; }
       .hero-image { order: -1; }
       .hero-photo-wrap { width: min(260px, 80%); margin: 0 auto; }
-      .about-grid, .contact-grid, .resources-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .resources-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-aside { position: static; }
       .pillars { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -169,14 +184,16 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Luka Kemežytė</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#resources">Resources</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-lang" onclick="toggleLang()">LT</button>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about" class="en">About</a><a href="#about" class="lt">Apie</a></li>
+        <li><a href="#approach" class="en">Approach</a><a href="#approach" class="lt">Metodas</a></li>
+        <li><a href="#pricing" class="en">Pricing</a><a href="#pricing" class="lt">Kainos</a></li>
+        <li><a href="#resources" class="en">Resources</a><a href="#resources" class="lt">Šaltiniai</a></li>
+        <li><a href="#contact" class="en">Contact</a><a href="#contact" class="lt">Kontaktai</a></li>
+      </ul>
+      <button class="nav-lang" onclick="toggleLang()">LT</button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -230,7 +247,8 @@
               <span class="credential-sub">European Network for Bipolar Emotion Regulation</span>
             </div>
             <div class="credential">
-              <span class="credential-title">Training in Existential-Humanistic Therapy</span>
+              <span class="credential-title en">Training in Existential-Humanistic Therapy</span>
+              <span class="credential-title lt">Egzistencinė-humanistinė terapija</span>
               <span class="credential-sub">Hepi.lt · In progress</span>
             </div>
           </div>
@@ -238,22 +256,28 @@
             <span class="lang-tag">🇱🇹 Lithuanian</span>
             <span class="lang-tag">🇬🇧 English</span>
           </div>
+          <div class="dj-photo-wrap">
+            <img src="LukaDJ.JPG" alt="Luka DJing" />
+            <div class="dj-caption en">Also a DJ — music as another way of being present</div>
+            <div class="dj-caption lt">Taip pat DJ — muzika kaip kitas būdas būti čia</div>
+          </div>
         </div>
+
         <div class="about-body">
-          <p class="en">I'm Luka — a clinical psychologist who has lived and worked across Lithuania, the UK, and Germany. I'm drawn to the questions that don't have easy answers: how we carry difficult experiences, how we find meaning in uncertain times, how we learn to be with ourselves.</p>
-          <p class="lt">Aš esu Luka — klinikinė psichologė, gyvenusi ir dirbusi Lietuvoje, Jungtinėje Karalystėje ir Vokietijoje. Mane traukia klausimai, į kuriuos nėra paprastų atsakymų.</p>
+          <p class="en">I am a clinical psychologist offering online consultations in English and Lithuanian. I have lived, studied, and worked across Lithuania, the United Kingdom, and Germany, and I have always been drawn to questions that do not have easy answers: how we carry difficult experiences, make sense of ourselves, find meaning in uncertain times, and learn to live with our inner world more honestly.</p>
+          <p class="lt">Esu klinikinė psichologė, teikianti konsultacijas internetu anglų ir lietuvių kalbomis. Gyvenau, studijavau ir dirbau Lietuvoje, Jungtinėje Karalystėje bei Vokietijoje, ir mane visada traukė klausimai, į kuriuos nėra paprastų atsakymų: kaip mes susigyvename su sunkiomis patirtimis, kaip suvokiame save, kaip randame prasmę neapibrėžtais laikais ir kaip mokomės sąžiningiau gyventi su savo vidiniu pasauliu.</p>
 
-          <p class="en">My work is grounded in existential-humanistic therapy — an approach that treats you as the expert on your own life. I don't bring a pre-written map to our sessions. I bring curiosity, honesty, and a genuine belief that understanding yourself more fully is one of the most useful things a person can do.</p>
-          <p class="lt">Mano darbas grindžiamas egzistenciniu-humanistiniu požiūriu — metodu, kuris tave laiko savo gyvenimo ekspertu.</p>
+          <p class="en">My work is grounded in clinical psychology, emotion regulation research, and ongoing training in existential-humanistic therapy. I see therapy not as someone else telling you who you are, but as a collaborative process of understanding your experience, choices, relationships, and possibilities more deeply. Therapy goals are formed together, based on your individual sense of what you need.</p>
+          <p class="lt">Mano darbas remiasi klinikine psichologija, emocijų reguliacijos tyrimais ir egzistencinės-humanistinės terapijos studijomis. Terapiją matau ne kaip vietą, kur kažkas kitas pasako, kas tu esi, bet kaip bendrą procesą, kuriame giliau tyrinėjamos patirtys, pasirinkimai, santykiai ir galimybės keistis. Terapijos tikslus formuluojame kartu, remdamiesi tavo individualiu supratimu apie tai, ko tau reikia.</p>
 
-          <p class="en">I also carry lived experience of neurodivergence — knowing what it means to have a nervous system that works differently, and how important it is to understand and accept your own particular way of functioning, rather than fighting it.</p>
-          <p class="lt">Turiu ir asmeninės patirties su neuroskirtingumu — žinau, ką reiškia turėti nervų sistemą, kuri veikia kitaip, ir kaip svarbu tai priimti.</p>
+          <p class="en">I am especially interested in emotional intensity, emotional ups and downs, life transitions, self-worth, relationship patterns, neurodivergence, and questions of gender, sexuality, and identity. I am curious about how differences in attention, motivation, sensitivity, and emotional responsiveness shape the way a person relates to themselves, to others, and to everyday life.</p>
+          <p class="lt">Mane ypač domina emocinis intensyvumas, nuotaikos svyravimai, gyvenimo pokyčiai, savivertė, santykių problemos, neuroįvairovė bei klausimai, susiję su lytimi, seksualumu ir tapatumu. Man svarbu suprasti, kaip dėmesio, motyvacijos, jautrumo ir emocinio reagavimo skirtumai formuoja žmogaus santykį su savimi, kitais žmonėmis ir kasdieniu gyvenimu.</p>
 
-          <p class="en">Alongside my practice, I am an active researcher at ENBER — the European Network for Bipolar Emotion Regulation — working with the University of Exeter on how emotion regulation strategies relate to mood instability. That scientific curiosity comes directly into my clinical work.</p>
-          <p class="lt">Be praktikos, esu aktyvus ENBER tyrėjas, dirbantis su Ekseterio universitetu emocijų reguliavimo ir nuotaikos nestabilumo srityje.</p>
+          <p class="en">Alongside my clinical practice, I am a researcher at ENBER — the European Network for Bipolar Emotion Regulation. Together with colleagues across Europe, I research how emotion regulation training can be implemented in therapy for people experiencing intense or rapidly changing emotions, including in the context of bipolar disorder. To me, emotion regulation is not about becoming less sensitive or feeling less deeply. It is about learning to understand, express, respond to, and stay with one's emotions in ways that support relationships, wellbeing, and a more stable sense of self.</p>
+          <p class="lt">Be savo klinikinės praktikos esu ENBER — Europos bipolinio sutrikimo emocijų reguliacijos tinklo narė — jaunoji mokslininkė. Kartu su kolegomis iš įvairių Europos šalių tyrinėju, kaip emocijų reguliacijos strategijų mokymas gali būti taikomas terapijoje žmonėms, patiriantiems intensyvias ar greitai besikeičiančias emocijas, įskaitant ir bipolinio sutrikimo kontekstą. Svarbu suprasti, kad emocijų reguliavimas nereiškia siekti tapti mažiau jautriu ar jausti mažiau. Tai mokymasis suprasti, išreikšti, atliepti ir išbūti su savo emocijomis taip, kad jos palaikytų santykius, savijautą ir stabilesnį ryšį su savimi.</p>
 
-          <p class="en">I love to travel, to explore new cities, and to understand how people build their lives across cultures and borders. It's part of why I feel genuinely at home working with people who are internationally mobile — I understand that particular restlessness, and the richness it brings.</p>
-          <p class="lt">Myliu keliones ir naujų vietų pažinimą. Tai iš dalies paaiškina, kodėl jaučiuosi tikrai savo vietoje dirbdama su tarptautiniu gyvenimo būdu gyvenančiais žmonėmis.</p>
+          <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention. Outside the therapy room, music and DJing are important parts of my life. They are where I find flow, play, and aliveness — and they remind me how important it is to have places where we can lose track of time in the best way.</p>
+          <p class="lt">Taip pat atsižvelgiu į gyvenimo tarp kultūrų, kalbų ir vietų patirtį. Kadangi dalį savo gyvenimo kūriau skirtingose šalyse, suprantu, kad mobilumas gali suteikti laisvę, augimą ir galimybes, tačiau kartu kelia klausimus apie priklausomybę, tapatybę, vienatvę ir nerimą. Nesvarbu, ar gyvenate užsienyje, ar visada gyvenote netoli namų, mane domina, kaip būtent jūsų gyvenimas jus suformavo — ir kas dabar galbūt reikalauja dėmesio.</p>
         </div>
       </div>
     </div>
@@ -267,28 +291,28 @@
       <h2 class="section-title en">You already know<br />what <em>matters</em>.</h2>
       <h2 class="section-title lt">Tu jau žinai,<br />kas <em>svarbu</em>.</h2>
       <p class="approach-intro en">My role is not to diagnose or to fix. It's to sit alongside you and help you hear yourself more clearly. Therapy here is a real relationship — not an evaluation — and it works best when we approach it as a long-term collaboration.</p>
-      <p class="approach-intro lt">Mano vaidmuo — ne diagnozuoti ar taisyti. Sėdėti šalia ir padėti tau geriau išgirsti save patį. Terapija čia yra tikras ryšys, ne vertinimas.</p>
+      <p class="approach-intro lt">Mano vaidmuo — ne diagnozuoti ar taisyti. Sėdėti šalia ir padėti tau geriau išgirsti save. Terapija čia yra tikras ryšys, o ne vertinimas — ir geriausiai veikia kaip ilgalaikis bendradarbiavimas.</p>
       <div class="pillars">
         <div class="pillar">
           <div class="pillar-num">01</div>
           <div class="pillar-title en">You set the agenda</div>
           <div class="pillar-title lt">Tu nustato darbotvarkę</div>
           <p class="pillar-text en">We begin with what you think the problem is — not a framework I impose. Diagnoses can be useful tools, but they don't define who you are or what's possible for you.</p>
-          <p class="pillar-text lt">Pradedame nuo to, ką tu laikai problema — ne nuo mano primetamos struktūros. Diagnozės gali būti naudingos, tačiau jos neapibrėžia tavęs.</p>
+          <p class="pillar-text lt">Pradedame nuo to, ką tu laikai problema — ne nuo mano primetamos struktūros. Diagnozės gali būti naudingos priemonės, tačiau jos neapibrėžia, kas esi ir kas tau įmanoma.</p>
         </div>
         <div class="pillar">
           <div class="pillar-num">02</div>
           <div class="pillar-title en">Emotions as information</div>
           <div class="pillar-title lt">Emocijos kaip informacija</div>
           <p class="pillar-text en">Difficult states — anxiety, mood swings, numbness — are not problems to be eliminated. They're signals worth understanding. Learning to be with all of your emotional life, not just the comfortable parts, is central to what we do.</p>
-          <p class="pillar-text lt">Sudėtingos būsenos — nerimas, nuotaikų svyravimai — nėra problemos, kurias reikia panaikinti. Tai signalai, verti dėmesio ir supratimo.</p>
+          <p class="pillar-text lt">Sudėtingos būsenos — nerimas, nuotaikų svyravimai, nejautrumas — nėra problemos, kurias reikia panaikinti. Tai signalai, verti supratimo. Išmokti būti su visu savo emociniu gyvenimu — ne tik su patogiosiomis dalimis — yra mūsų darbo šerdis.</p>
         </div>
         <div class="pillar">
           <div class="pillar-num">03</div>
           <div class="pillar-title en">Depth over speed</div>
           <div class="pillar-title lt">Gylis, ne greitis</div>
           <p class="pillar-text en">I work long-term. Real change in how you relate to yourself and others takes time, and it's worth taking that time seriously. I'm not interested in quick fixes — I'm interested in you.</p>
-          <p class="pillar-text lt">Dirbu ilgalaikiai. Tikri pokyčiai, kaip tu santykiauji su savimi ir kitais, užtrunka — ir tai verta.</p>
+          <p class="pillar-text lt">Dirbu ilgalaikiai. Tikri pokyčiai, kaip santykiauji su savimi ir kitais, užtrunka — ir tai verta rimtai traktuoti. Mane domina ne greiti sprendimai, o tu.</p>
         </div>
       </div>
     </div>
@@ -297,18 +321,19 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="section-inner">
-      <p class="section-label">Pricing</p>
+      <p class="section-label en">Pricing</p>
+      <p class="section-label lt">Kainos</p>
       <h2 class="section-title en">Let's talk about<br /><em>what works for you.</em></h2>
       <h2 class="section-title lt">Aptarkime,<br /><em>kas tinka tau.</em></h2>
       <p class="pricing-sub en">I believe therapy should be accessible. Fees are discussed individually before we begin — based on your situation, location, and what we'll be working on together.</p>
-      <p class="pricing-sub lt">Manau, kad terapija turėtų būti prieinama. Įkainiai aptariami individualiai prieš pradedant — atsižvelgiant į tavo situaciją ir poreikius.</p>
+      <p class="pricing-sub lt">Manau, kad terapija turėtų būti prieinama. Įkainiai aptariami individualiai prieš pradedant — atsižvelgiant į tavo situaciją, vietą ir tai, ką dirbsime kartu.</p>
       <div class="pricing-info-block">
         <p class="en">Each session is 50 minutes and takes place online, via video call. I offer sessions in both English and Lithuanian.</p>
         <p class="lt">Kiekviena sesija trunka 50 minučių ir vyksta internetu, vaizdo skambučiu. Konsultuoju lietuvių ir anglų kalbomis.</p>
         <p class="en">Before we begin, I offer a free 20-minute introductory call — so we can both get a sense of whether working together feels right. There's no obligation after that conversation.</p>
         <p class="lt">Prieš pradedant siūlau nemokamą 20 minučių pažintinį pokalbį — kad abu galėtume pajusti, ar darbas kartu tinka. Jokių įsipareigojimų po to pokalbio.</p>
-        <a href="https://calendly.com/luka-keme/30min" target="_blank" class="pricing-cta en">Book a free intro call →</a>
-        <a href="https://calendly.com/luka-keme/30min" target="_blank" class="pricing-cta lt">Užsiregistruoti nemokamam pokalbiui →</a>
+        <div class="pricing-clinic-note en">Prefer to meet in person? I also see clients at <a href="https://konsultuojam.lt" target="_blank">Psichoterapijos Konsultacijų Centras</a> in Kaunas.</div>
+        <div class="pricing-clinic-note lt">Norite susitikti gyvai? Taip pat konsultuoju <a href="https://konsultuojam.lt" target="_blank">Psichoterapijos Konsultacijų Centre</a> Kaune.</div>
       </div>
     </div>
   </section>
@@ -320,47 +345,77 @@
       <p class="section-label lt">Tinklaraštis ir šaltiniai</p>
       <h2 class="section-title en">Writing & <em>useful links</em>.</h2>
       <h2 class="section-title lt">Straipsniai ir <em>naudingi šaltiniai</em>.</h2>
+      <p class="resources-intro en">A collection of research, writing, and resources related to emotion regulation, mood, and mental health — for clients, curious readers, and fellow practitioners.</p>
+      <p class="resources-intro lt">Tyrimų, straipsnių ir šaltinių rinkinys apie emocijų reguliavimą, nuotaiką ir psichinę sveikatą — klientams, skaitytojams ir kolegoms.</p>
       <div class="resources-grid">
         <div>
-          <p class="resources-section-title en">From the blog</p>
-          <p class="resources-section-title lt">Iš tinklaraščio</p>
-          <div class="blog-coming">
-            <strong class="en">Writing coming soon</strong>
-            <strong class="lt">Straipsniai — greitai</strong>
-            <span class="en">I'll be writing about emotion regulation, expat mental health, and what existential therapy actually looks like in practice.</span>
-            <span class="lt">Rašysiu apie emocijų reguliavimą, emigrantų psichinę sveikatą ir egzistencinę terapiją praktikoje.</span>
+          <p class="resources-section-title en">Research & reading</p>
+          <p class="resources-section-title lt">Tyrimai ir skaitymas</p>
+          <div class="resource-links">
+            <a href="https://doi.org/10.3389/fpsyt.2024.1518106" target="_blank" class="resource-link">
+              <div class="resource-link-icon">📄</div>
+              <div>
+                <span class="resource-link-title en">ENBER: Emotion Dysregulation in Bipolar Disorder</span>
+                <span class="resource-link-title lt">ENBER: Emocijų disreguliacija bipoliniame sutrikime</span>
+                <span class="resource-link-sub en">Open-access research article · Frontiers in Psychiatry, 2024</span>
+                <span class="resource-link-sub lt">Atviros prieigos straipsnis · Frontiers in Psychiatry, 2024</span>
+              </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=MCSvTt_ZXnk" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🎬</div>
+              <div>
+                <span class="resource-link-title en">DBT in Bipolar Disorders — ENBER lecture</span>
+                <span class="resource-link-title lt">DBT bipoliniuose sutrikimuose — ENBER paskaita</span>
+                <span class="resource-link-sub en">Video lecture by an ENBER colleague · YouTube</span>
+                <span class="resource-link-sub lt">Vaizdo paskaita · YouTube</span>
+              </div>
+            </a>
+            <div class="resource-link placeholder">
+              <div class="resource-link-icon">✍️</div>
+              <div>
+                <span class="resource-link-title en">An existential outlook on depression</span>
+                <span class="resource-link-title lt">Egzistencinis žvilgsnis į depresiją</span>
+                <span class="resource-link-sub en">Article coming soon</span>
+                <span class="resource-link-sub lt">Straipsnis — greitai</span>
+              </div>
+            </div>
+            <div class="resource-link placeholder">
+              <div class="resource-link-icon">🌿</div>
+              <div>
+                <span class="resource-link-title en">Nature and mental health</span>
+                <span class="resource-link-title lt">Gamta ir psichinė sveikata</span>
+                <span class="resource-link-sub en">Article coming soon</span>
+                <span class="resource-link-sub lt">Straipsnis — greitai</span>
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <p class="resources-section-title en">Useful resources</p>
-          <p class="resources-section-title lt">Naudingi šaltiniai</p>
+          <p class="resources-section-title en">From the blog</p>
+          <p class="resources-section-title lt">Iš tinklaraščio</p>
+          <div class="blog-coming" style="margin-bottom: 2rem;">
+            <strong class="en">Writing coming soon</strong>
+            <strong class="lt">Straipsniai — greitai</strong>
+            <span class="en">I'll be writing about emotion regulation, expat mental health, and what existential therapy looks like in practice.</span>
+            <span class="lt">Rašysiu apie emocijų reguliavimą, emigrantų psichinę sveikatą ir egzistencinę terapiją praktikoje.</span>
+          </div>
+          <p class="resources-section-title lt">Lietuviška bendruomenė</p>
           <div class="resource-links">
-            <a href="https://www.enber.eu" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🔬</div>
-              <div class="resource-link-text">
-                <span class="resource-link-title">ENBER Network</span>
-                <span class="resource-link-sub">European research on bipolar emotion regulation</span>
+            <a href="https://isgirsti.lt" target="_blank" class="resource-link lt">
+              <div class="resource-link-icon">🏳️‍🌈</div>
+              <div>
+                <span class="resource-link-title">Išgirsti</span>
+                <span class="resource-link-sub">Erdvė queer socialiniam veiksmui, psichosocialinei gerovei ir kultūrinėms iniciatyvoms Lietuvoje</span>
               </div>
             </a>
-            <a href="https://www.mind.org.uk" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🧠</div>
-              <div class="resource-link-text">
-                <span class="resource-link-title">Mind UK</span>
-                <span class="resource-link-sub">Mental health information and support</span>
-              </div>
-            </a>
-            <a href="https://www.psichologai.lt" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🇱🇹</div>
-              <div class="resource-link-text">
-                <span class="resource-link-title">LPA</span>
-                <span class="resource-link-sub">Lithuanian Psychological Association</span>
-              </div>
-            </a>
-            <a href="https://www.sidabrine-linija.lt" target="_blank" class="resource-link">
-              <div class="resource-link-icon">📞</div>
-              <div class="resource-link-text">
-                <span class="resource-link-title">Sidabrinė Linija</span>
-                <span class="resource-link-sub">Support line for the elderly in Lithuania</span>
+          </div>
+          <p class="resources-section-title en" style="margin-top: 1.5rem;">Community resources</p>
+          <div class="resource-links en">
+            <a href="https://isgirsti.lt" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🏳️‍🌈</div>
+              <div>
+                <span class="resource-link-title">Išgirsti (Lithuania)</span>
+                <span class="resource-link-sub">Space for queer community, psychosocial wellbeing and cultural initiatives in Lithuania</span>
               </div>
             </a>
           </div>
@@ -387,8 +442,13 @@
             </div>
             <div class="contact-detail">
               <div class="contact-detail-icon">🌍</div>
-              <span class="en">Online worldwide · Sessions in English & Lithuanian</span>
+              <span class="en">Online worldwide · English & Lithuanian</span>
               <span class="lt">Internetu · Anglų ir lietuvių kalbomis</span>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🏢</div>
+              <span class="en">In-person in Kaunas · <a href="https://konsultuojam.lt" target="_blank">konsultuojam.lt</a></span>
+              <span class="lt">Gyvai Kaune · <a href="https://konsultuojam.lt" target="_blank">konsultuojam.lt</a></span>
             </div>
           </div>
           <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en">📅 Book a free intro call</a>
@@ -397,27 +457,23 @@
         <form name="contact" netlify>
           <div class="form-row">
             <div>
-              <label for="name" class="en">Your name</label>
-              <label for="name2" class="lt">Jūsų vardas</label>
+              <label for="name"><span class="en">Your name</span><span class="lt">Jūsų vardas</span></label>
               <input type="text" id="name" name="name" required />
             </div>
             <div>
-              <label for="email" class="en">Email</label>
-              <label for="email2" class="lt">El. paštas</label>
+              <label for="email"><span class="en">Email</span><span class="lt">El. paštas</span></label>
               <input type="email" id="email" name="email" required />
             </div>
           </div>
           <div>
-            <label for="language" class="en">Preferred language</label>
-            <label for="language2" class="lt">Pageidaujama kalba</label>
+            <label for="language"><span class="en">Preferred language</span><span class="lt">Pageidaujama kalba</span></label>
             <select id="language" name="language">
               <option value="english">English</option>
               <option value="lithuanian">Lithuanian / Lietuvių</option>
             </select>
           </div>
           <div>
-            <label for="message" class="en">What brings you here?</label>
-            <label for="message2" class="lt">Kas jus čia atveda?</label>
+            <label for="message"><span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span></label>
             <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit" class="form-submit en">Send message</button>
@@ -430,7 +486,8 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Luka Kemežytė</span>
-    <span>Clinical Psychologist · Online · luka-keme.com</span>
+    <span class="en">Clinical Psychologist · Online & Kaunas · luka-keme.com</span>
+    <span class="lt">Klinikinė psichologė · Internetu ir Kaune · luka-keme.com</span>
     <span>© 2026</span>
   </footer>
 
@@ -439,14 +496,9 @@
     function toggleLang() {
       lang = lang === 'en' ? 'lt' : 'en';
       document.querySelector('.nav-lang').textContent = lang === 'en' ? 'LT' : 'EN';
-      document.querySelectorAll('.en').forEach(el => {
-        el.style.display = lang === 'en' ? '' : 'none';
-      });
-      document.querySelectorAll('.lt').forEach(el => {
-        el.style.display = lang === 'lt' ? '' : 'none';
-      });
+      document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      document.querySelectorAll('.lt').forEach(el => el.style.display = lang === 'lt' ? '' : 'none');
     }
   </script>
-
 </body>
 </html>
