@@ -463,7 +463,9 @@
             <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
           </div>
         </div>
-        <form name="contact" netlify style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);" id="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;"><input name="bot-field" /></p>
           <div class="form-row">
             <div>
               <label for="name"><span class="en">Your name</span><span class="lt">Jūsų vardas</span></label>
@@ -488,6 +490,10 @@
           <div class="form-actions">
             <button type="submit" class="form-submit en">Send message</button>
             <button type="submit" class="form-submit lt">Siųsti žinutę</button>
+          </div>
+          <div id="form-success" style="display:none; margin-top:1.5rem; padding:1.2rem 1.5rem; background:#e8f4ef; border-left:3px solid #7a9e82; border-radius:8px;">
+            <p class="en" style="color:#2d4a35; font-size:0.95rem; margin:0;">Thank you for reaching out. I'll get back to you within 2 working days.</p>
+            <p class="lt" style="color:#2d4a35; font-size:0.95rem; margin:0;">Ačiū, kad susisiekėte. Atsakysiu per 2 darbo dienas.</p>
           </div>
         </form>
       </div>
@@ -514,6 +520,28 @@
         el.style.display = lang === 'lt' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
       });
     }
+
+    // Form submission
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
+        });
+        form.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
+        const success = document.getElementById('form-success');
+        success.style.display = 'block';
+        // Show correct language in success message
+        success.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+        success.querySelectorAll('.lt').forEach(el => el.style.display = lang === 'lt' ? 'block' : 'none');
+      } catch (error) {
+        alert('Something went wrong. Please email luka.keme@gmail.com directly.');
+      }
+    });
   </script>
 </body>
 </html>
