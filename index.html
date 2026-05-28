@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,10 +88,10 @@
     .about-languages { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .lang-tag { font-size: 0.76rem; padding: 0.3rem 0.8rem; border-radius: 2rem; border: 1px solid var(--sand-dark); color: var(--text-light); }
 
-    /* DJ photo */
-    .dj-photo-wrap { margin-top: 2rem; position: relative; border-radius: 12px; overflow: hidden; }
-    .dj-photo-wrap img { width: 100%; height: auto; display: block; filter: brightness(0.92); }
-    .dj-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(30,46,34,0.75)); color: rgba(245,240,232,0.9); font-size: 0.78rem; padding: 1.5rem 1rem 0.8rem; letter-spacing: 0.05em; }
+    /* DJ oval sidebar */
+    .dj-oval { margin-top: 2rem; text-align: left; }
+    .dj-oval img { width: 200px; height: 240px; object-fit: cover; object-position: center 60%; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block; margin: 0 auto; filter: brightness(0.93); }
+    .dj-oval-caption { margin-top: 0.6rem; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.03em; line-height: 1.5; text-align: left; }
 
     /* APPROACH */
     #approach { background: var(--cream); }
@@ -135,20 +134,26 @@
 
     /* CONTACT */
     #contact { background: var(--cream); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: stretch; }
+    .contact-info { display: flex; flex-direction: column; align-items: flex-start; }
+    .contact-cta-spacer { margin-top: auto; padding-top: 1.2rem; }
     .contact-info p { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; }
     .contact-details { display: flex; flex-direction: column; gap: 0.8rem; }
     .contact-detail { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--text-light); }
     .contact-detail-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; }
     .contact-detail a { color: var(--green); text-decoration: none; font-weight: 500; }
-    .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.8rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: background 0.25s, transform 0.2s; }
+    .form-actions { margin-top: auto; padding-top: 1.2rem; }
+    .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.9rem 2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
+    .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
+    .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 0; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
+    .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
     .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
     form { display: flex; flex-direction: column; gap: 1.2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     label { display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.4rem; }
     input, textarea, select { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--sand-dark); border-radius: 8px; background: var(--white); font-family: var(--font-body); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; }
     input:focus, textarea:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(122,158,130,0.15); }
-    textarea { resize: vertical; min-height: 130px; }
+    .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.95rem 2.2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
     .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.95rem 2.2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; align-self: flex-start; }
     .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
 
@@ -201,7 +206,7 @@
       .pillar { padding: 1.5rem; }
       .about-credentials { gap: 0.7rem; }
       .credential { padding: 0.8rem 1rem; }
-      .dj-photo-wrap { margin-top: 1.5rem; }
+      .dj-oval img { width: 160px; height: 190px; }
       .resource-link { padding: 0.8rem 1rem; }
       .contact-detail { font-size: 0.82rem; }
     }
@@ -215,7 +220,7 @@
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#about" class="en">About</a><a href="#about" class="lt">Apie</a></li>
-        <li><a href="#approach" class="en">Approach</a><a href="#approach" class="lt">Metodas</a></li>
+        <li><a href="#approach" class="en">Approach</a><a href="#approach" class="lt">Požiūris</a></li>
         <li><a href="#resources" class="en">Resources</a><a href="#resources" class="lt">Šaltiniai</a></li>
         <li><a href="#contact" class="en">Contact</a><a href="#contact" class="lt">Kontaktai</a></li>
       </ul>
@@ -279,13 +284,9 @@
               <span class="credential-sub">Hepi.lt · In progress</span>
             </div>
           </div>
-          <div class="about-languages">
-            <span class="lang-tag">🇱🇹 Lithuanian</span>
-            <span class="lang-tag">🇬🇧 English</span>
-          </div>
-          <div class="dj-photo-wrap en">
+          <div class="dj-oval en">
             <img src="LukaDJ.JPG" alt="Luka DJing" />
-            <div class="dj-caption en">Also a DJ — music as another way of being present</div>
+            <p class="dj-oval-caption">Outside the therapy room, music reminds me that life is not only something to understand, but also something to experience.</p>
           </div>
         </div>
 
@@ -313,32 +314,32 @@
   <section id="approach">
     <div class="section-inner">
       <p class="section-label en">How I work</p>
-      <p class="section-label lt">Kaip dirbu</p>
-      <h2 class="section-title en">You already know<br />what <em>matters</em>.</h2>
-      <h2 class="section-title lt">Tu jau žinai,<br />kas <em>svarbu</em>.</h2>
-      <p class="approach-intro en">My role is not to diagnose or to fix. It's to sit alongside you and help you hear yourself more clearly. Therapy here is a real relationship — not an evaluation — and it works best when we approach it as a long-term collaboration.</p>
-      <p class="approach-intro lt">Mano vaidmuo — ne diagnozuoti ar taisyti. Sėdėti šalia ir padėti tau geriau išgirsti save. Terapija čia yra tikras ryšys, o ne vertinimas — ir geriausiai veikia kaip ilgalaikis bendradarbiavimas.</p>
+      <p class="section-label lt">Požiūris</p>
+      <h2 class="section-title en">Work starts with<br />your <em>experience</em>.</h2>
+      <h2 class="section-title lt">Viskas prasideda<br />nuo savitos <em>patirties</em>.</h2>
+      <p class="approach-intro en">Therapy is not an evaluation of who you are. It is a collaborative process — understanding what you're living through, what has shaped you, and what could change.</p>
+      <p class="approach-intro lt">Terapija nėra jūsų asmenybės vertinimas. Tai bendradarbiavimo procesas, kurio metu siekiama suprasti, ką jūs išgyvenate, kas jus suformavo ir kas galėtų pasikeisti.</p>
       <div class="pillars">
         <div class="pillar">
           <div class="pillar-num">01</div>
-          <div class="pillar-title en">You set the agenda</div>
-          <div class="pillar-title lt">Tu nustato darbotvarkę</div>
-          <p class="pillar-text en">We begin with what you think the problem is — not a framework I impose. Diagnoses can be useful tools, but they don't define who you are or what's possible for you.</p>
-          <p class="pillar-text lt">Pradedame nuo to, ką tu laikai problema — ne nuo mano primetamos struktūros. Diagnozės gali būti naudingos priemonės, tačiau jos neapibrėžia, kas esi ir kas tau įmanoma.</p>
+          <div class="pillar-title en">We form the direction together</div>
+          <div class="pillar-title lt">Tikslus išgryninsime kartu</div>
+          <p class="pillar-text en">We begin with what feels most important to you — while staying curious about patterns, meanings, and possibilities.</p>
+          <p class="pillar-text lt">Pradedame nuo to, ką jūs laikote problema — ne nuo primetamos struktūros. Diagnozės gali būti naudingos priemonės, tačiau jos neapibrėžia, kas esi ir kas tau įmanoma.</p>
         </div>
         <div class="pillar">
           <div class="pillar-num">02</div>
           <div class="pillar-title en">Emotions as information</div>
           <div class="pillar-title lt">Emocijos kaip informacija</div>
           <p class="pillar-text en">Difficult states — anxiety, mood swings, numbness — are not problems to be eliminated. They're signals worth understanding. Learning to be with all of your emotional life, not just the comfortable parts, is central to what we do.</p>
-          <p class="pillar-text lt">Sudėtingos būsenos — nerimas, nuotaikų svyravimai, nejautrumas — nėra problemos, kurias reikia panaikinti. Tai signalai, verti supratimo. Išmokti būti su visu savo emociniu gyvenimu — ne tik su patogiosiomis dalimis — yra mūsų darbo šerdis.</p>
+          <p class="pillar-text lt">Sudėtingos būsenos — nerimas, nuotaikų svyravimai, jautrumas — nėra problemos, kurias reikia panaikinti. Tai signalai, kuriuos verta išgirsti ir suprasti. Išmokti būti su visu savo emociniu gyvenimu — ne tik su patogiosiomis dalimis — yra mūsų darbo šerdis.</p>
         </div>
         <div class="pillar">
           <div class="pillar-num">03</div>
-          <div class="pillar-title en">Depth over speed</div>
-          <div class="pillar-title lt">Gylis, ne greitis</div>
-          <p class="pillar-text en">I work long-term. Real change in how you relate to yourself and others takes time, and it's worth taking that time seriously. I'm not interested in quick fixes — I'm interested in you.</p>
-          <p class="pillar-text lt">Dirbu ilgalaikiai. Tikri pokyčiai, kaip santykiauji su savimi ir kitais, užtrunka — ir tai verta rimtai traktuoti. Mane domina ne greiti sprendimai, o tu.</p>
+          <div class="pillar-title en">Change takes time</div>
+          <div class="pillar-title lt">Pokyčiui reikia laiko</div>
+          <p class="pillar-text en">Some relief can come quickly, but deeper change takes time. I'm interested not only in what helps now, but in how your relationship with yourself and others can become what you want it to be.</p>
+          <p class="pillar-text lt">Tam tikras palengvėjimas gali ateiti greitai, tačiau gilesni pokyčiai reikalauja laiko. Mane domina ne tik tai, kas padeda šiame momente, bet ir tai, kaip jūsų santykiai su savimi ir kitais gali tapti tokie, kokių norite.</p>
         </div>
       </div>
     </div>
@@ -433,14 +434,14 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
-      <p class="section-label en">Contact</p>
-      <p class="section-label lt">Kontaktai</p>
-      <h2 class="section-title en">Let's see if we're<br />a good <em>fit</em>.</h2>
-      <h2 class="section-title lt">Pažiūrėkime, ar<br /><em>tinkame</em> vienas kitam.</h2>
       <div class="contact-grid">
         <div class="contact-info">
+          <p class="section-label en">Contact</p>
+          <p class="section-label lt">Kontaktai</p>
+          <h2 class="section-title en">Let's see if we're<br />a good <em>fit</em>.</h2>
+          <h2 class="section-title lt">Pažiūrėkime, ar<br /><em>tinkame</em> vienas kitam.</h2>
           <p class="en">The first step is simple — send me a message or book a free 20-minute intro call. I'll get back to you within 2 working days.</p>
-          <p class="lt">Pirmas žingsnis paprastas — parašykite žemiau arba užsiregistruokite nemokamam pokalbiui. Atsakysiu per 2 darbo dienas.</p>
+          <p class="lt">Pirmas žingsnis paprastas — užpildykite formą arba užsiregistruokite nemokamam pokalbiui. Atsakysiu per 2 darbo dienas.</p>
           <div class="contact-details">
             <div class="contact-detail">
               <div class="contact-detail-icon">✉</div>
@@ -457,10 +458,12 @@
               <span class="lt">Gyvai Kaune · <a href="https://konsultuojam.lt" target="_blank">konsultuojam.lt</a></span>
             </div>
           </div>
-          <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en">📅 Book a free intro call</a>
-          <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
+          <div class="contact-cta-spacer">
+            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en">📅 Book a free intro call</a>
+            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
+          </div>
         </div>
-        <form name="contact" netlify>
+        <form name="contact" netlify style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);">
           <div class="form-row">
             <div>
               <label for="name"><span class="en">Your name</span><span class="lt">Jūsų vardas</span></label>
@@ -482,8 +485,10 @@
             <label for="message"><span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span></label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button type="submit" class="form-submit en">Send message</button>
-          <button type="submit" class="form-submit lt">Siųsti žinutę</button>
+          <div class="form-actions">
+            <button type="submit" class="form-submit en">Send message</button>
+            <button type="submit" class="form-submit lt">Siųsti žinutę</button>
+          </div>
         </form>
       </div>
     </div>
