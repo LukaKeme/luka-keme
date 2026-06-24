@@ -67,8 +67,14 @@
     .hero-badge strong { display: block; color: var(--green); font-weight: 500; }
 
     /* SECTIONS */
-    section { padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
-    .section-inner { max-width: var(--max); margin: 0 auto; }
+    /* DOODLE SYSTEM */
+    .doodle { position: absolute; pointer-events: none; mix-blend-mode: multiply; user-select: none; z-index: 0; }
+    .doodle img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    section { position: relative; overflow: hidden; padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
+    .section-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
+    .hero { position: relative; z-index: 1; }
+    /* Hide decorative doodles on small screens — they crowd content there */
+    @media (max-width: 700px) { .doodle { display: none; } }
     .section-label { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 1.2rem; }
     .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--sage); display: block; flex-shrink: 0; }
     .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--green); line-height: 1.15; margin-bottom: 1.5rem; }
@@ -77,7 +83,7 @@
     /* ABOUT */
     #about { background: var(--white); }
     .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
-    .about-aside { position: sticky; top: 6rem; }
+    .about-aside { position: static; }
     .about-credentials { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
     .credential { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 1.2rem; background: var(--cream); border-left: 2px solid var(--sage); border-radius: 0 6px 6px 0; }
     .credential-title { font-size: 0.82rem; font-weight: 500; color: var(--green); }
@@ -92,6 +98,18 @@
     .dj-oval { margin-top: 2rem; text-align: left; }
     .dj-oval img { width: 200px; height: 240px; object-fit: cover; object-position: center 60%; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block; margin: 0 auto; filter: brightness(0.93); }
     .dj-oval-caption { margin-top: 0.6rem; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.03em; line-height: 1.5; text-align: left; }
+    /* DJ float inline */
+    .dj-float { float: right; width: 180px; height: 220px; object-fit: cover; object-position: center 40%; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; margin: 0 0 1rem 1.8rem; filter: brightness(0.93); }
+
+    /* WHO I WORK WITH */
+    .fit-block { margin-top: 2.6rem; padding-top: 2.2rem; border-top: 1px solid var(--sand); }
+    .fit-block + .fit-block { margin-top: 2rem; }
+    .fit-title { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
+    .fit-intro { font-size: clamp(0.95rem, 1.4vw, 1.02rem); color: var(--text-light); line-height: 1.7; margin-bottom: 1.2rem; }
+    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .fit-list li { position: relative; padding-left: 1.9rem; font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.6; }
+    .fit-list li::before { content: ''; position: absolute; left: 4px; top: 0.32em; width: 0.42rem; height: 0.78rem; border: solid var(--sage); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+    .fit-note { font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.75; padding: 1.1rem 1.3rem; background: var(--cream); border-left: 2px solid var(--sand-dark); border-radius: 0 8px 8px 0; }
 
     /* APPROACH */
     #approach { background: var(--cream); }
@@ -229,15 +247,21 @@
   </nav>
 
   <!-- HERO -->
-  <section style="padding:0; max-width:100%;">
+  <section style="padding:0; max-width:100%; position:relative; overflow:hidden;">
+    <div class="doodle" style="bottom:108px; left:32px; width:270px; height:331px; opacity:0.12;">
+      <img src="motif-moon-fisher.png" alt="" />
+    </div>
+    <div class="doodle" style="top:104px; right:40px; width:138px; height:146px; opacity:0.15;">
+      <img src="motif-moon-clouds-stars.png" alt="" />
+    </div>
     <div class="hero">
       <div class="hero-text">
         <p class="hero-eyebrow en">Clinical Psychologist · Online · In person in Kaunas, Lithuania</p>
         <p class="hero-eyebrow lt">Klinikinė psichologė · Internetu · Arba gyvai Kaune</p>
         <h1 class="hero-title en">When your inner world feels <em>too much</em>, too little, or hard to understand.</h1>
         <h1 class="hero-title lt">Kai viduje kažko lyg <em>per daug</em>, per mažai arba sunku suprasti, kas vyksta.</h1>
-        <p class="hero-sub en">People come to therapy with many different experiences — anxiety, depression, grief, burnout, emotional intensity, relationship struggles, uncertainty, or something that is not yet easy to name. The work begins wherever you are: whether it feels like distress, confusion, transition, curiosity, or just a simple wish for something to be different.</p>
-        <p class="hero-sub lt">Žmonės į terapiją ateina dėl įvairiausių priežasčių — nerimo, depresijos, gedulo, perdegimo, patiriamų emocijų intensyvumo, santykių sunkumų, neapibrėžtumo ir daug kitų dalykų, kuriuos dažnai sunku ir įvardinti. Terapinis darbas prasideda nuo ten, kur šiuo metu esate: ar tai būtų sunkumas, pasimetimas, pokyčiai, smalsumas ar tiesiog noras, kad kažkas būtų kitaip.</p>
+        <p class="hero-sub en">People come to psychological consultations with many different experiences — anxiety, depression, grief, burnout, emotional intensity, relationship struggles, uncertainty, or something that is not yet easy to name. The work begins wherever you are: whether it feels like distress, confusion, transition, curiosity, or just a simple wish for something to be different.</p>
+        <p class="hero-sub lt">Žmonės į psichologines konsultacijas ateina dėl įvairiausių priežasčių — nerimo, depresijos, gedulo, perdegimo, patiriamų emocijų intensyvumo, santykių sunkumų, neapibrėžtumo ir daug kitų dalykų, kuriuos dažnai sunku ir įvardinti. Darbas prasideda nuo ten, kur šiuo metu esate: ar tai būtų sunkumas, pasimetimas, pokyčiai, smalsumas ar tiesiog noras, kad kažkas būtų kitaip.</p>
         <a href="#contact" class="hero-cta en"><span>Get in touch</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a href="#contact" class="hero-cta lt"><span>Susisiekite</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
@@ -258,13 +282,19 @@
 
   <!-- ABOUT -->
   <section id="about">
+    <div class="doodle" style="top:52px; right:38px; width:150px; height:120px; opacity:0.14; transform:rotate(4deg);">
+      <img src="motif-fish-round.png" alt="" />
+    </div>
+    <div class="doodle" style="bottom:40px; left:36px; width:212px; height:99px; opacity:0.12; transform:rotate(-3deg);">
+      <img src="motif-cloud-wave.png" alt="" />
+    </div>
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-aside">
           <p class="section-label en">About</p>
           <p class="section-label lt">Apie mane</p>
-          <h2 class="section-title en">Research-informed.<br /><em>Deeply human.</em></h2>
-          <h2 class="section-title lt">Mokslu grįsta.<br /><em>Giliai žmogiška.</em></h2>
+          <h2 class="section-title en" style="font-size:clamp(1.45rem,2.5vw,2rem); line-height:1.3;">A background shaped by clinical work, research, and <em>ongoing therapy training</em></h2>
+          <h2 class="section-title lt" style="font-size:clamp(1.45rem,2.5vw,2rem); line-height:1.3;">Mano profesinis pagrindas: klinikinis darbas, moksliniai tyrimai ir <em>psichoterapijos mokslai</em></h2>
           <div class="about-credentials">
             <div class="credential">
               <span class="credential-title">MSc Clinical Psychology</span>
@@ -272,38 +302,63 @@
             </div>
             <div class="credential">
               <span class="credential-title">BSc Psychology</span>
-              <span class="credential-sub">University of Exeter · 2.1 (BPS accredited)</span>
+              <span class="credential-sub en">University of Exeter · BPS accredited</span>
+              <span class="credential-sub lt">Ekseterio universitetas · BPS akredituota</span>
             </div>
             <div class="credential">
-              <span class="credential-title">Researcher · ENBER</span>
-              <span class="credential-sub">European Network for Bipolar Emotion Regulation</span>
+              <span class="credential-title en">Researcher · ENBER</span>
+              <span class="credential-title lt">Tyrėja · ENBER</span>
+              <span class="credential-sub en">European Network for Bipolar Emotion Regulation</span>
+              <span class="credential-sub lt">Europos bipolinio sutrikimo emocijų reguliacijos tinklas</span>
             </div>
             <div class="credential">
               <span class="credential-title en">Training in Existential-Humanistic Therapy</span>
-              <span class="credential-title lt">Egzistencinė-humanistinė terapija</span>
-              <span class="credential-sub">Hepi.lt · In progress</span>
+              <span class="credential-title lt">Egzitencinės ir Humanistinės psichoterapijos pradinio lygmens studentė</span>
+              <span class="credential-sub en">Hepi.lt · In progress</span>
+              <span class="credential-sub lt">Hepi.lt · Studijos tęsiasi</span>
             </div>
           </div>
-          <div class="dj-oval en">
-            <img src="LukaDJ.JPG" alt="Luka DJing" />
-            <p class="dj-oval-caption">Outside the therapy room, music reminds me that life is not only something to understand, but also something to experience.</p>
+
+          <div class="fit-block">
+            <h3 class="fit-title en">Who I work with</h3>
+            <h3 class="fit-title lt">Su kuo dirbu</h3>
+            <p class="fit-intro en">I may be a good fit if you are:</p>
+            <p class="fit-intro lt">Galiu būti tinkamas pasirinkimas, jei:</p>
+            <ul class="fit-list en">
+              <li>living abroad, returning to Lithuania, or feeling between cultures;</li>
+              <li>experiencing emotional intensity, mood instability, anxiety, numbness, or self-doubt;</li>
+              <li>struggling with relationship problems, burnout, low self-worth, or identity questions;</li>
+              <li>living with depression or bipolar diagnosis;</li>
+              <li>wanting sessions in Lithuanian or English.</li>
+            </ul>
+            <ul class="fit-list lt">
+              <li>gyvenate užsienyje, grįžote į Lietuvą arba jaučiatės tarsi gyvenate tarp dviejų kultūrų;</li>
+              <li>patiriate stiprių emocijų, nuotaikos svyravimų, nerimą, apatiją ar nepasitikite savimi;</li>
+              <li>susiduriate su santykių problemomis, perdegimu, savivertės ar tapatybės klausimais;</li>
+              <li>išgyvenate depresiją, turite bipolinio sutrikimo diagnozę;</li>
+              <li>norite sesijų lietuvių arba anglų kalbomis.</li>
+            </ul>
+          </div>
+
+          <div class="fit-block">
+            <h3 class="fit-title en">Who I may not be the right fit for</h3>
+            <h3 class="fit-title lt">Kam aš galiu netikti</h3>
+            <p class="fit-note en">I may not be the best fit if you are looking for crisis intervention, medication management, or very structured short-term treatment. In those cases, I can help you think about or find more suitable options.</p>
+            <p class="fit-note lt">Aš galiu netikti, jei ieškote krizės intervencijos, oficialios psichiatrinės diagnozės, vaistų vartojimo valdymo arba labai struktūruotų trumpalaikių konsultacijų. Tokiais atvejais galiu padėti jums apsvarstyti ar surasti tinkamesnes galimybes.</p>
           </div>
         </div>
 
         <div class="about-body">
-          <p class="en">I am a clinical psychologist offering online consultations in English and Lithuanian. I have lived, studied, and worked across Lithuania, the United Kingdom, and Germany, and I have always been drawn to questions that do not have easy answers: how we carry difficult experiences, make sense of ourselves, find meaning in uncertain times, and learn to live with our inner world more honestly.</p>
-          <p class="lt">Esu klinikinė psichologė, teikianti konsultacijas internetu anglų ir lietuvių kalbomis. Gyvenau, studijavau ir dirbau Lietuvoje, Jungtinėje Karalystėje bei Vokietijoje, ir mane visada traukė klausimai, į kuriuos nėra paprastų atsakymų: kaip mes susigyvename su sunkiomis patirtimis, kaip suvokiame save, kaip randame prasmę neapibrėžtais laikais ir kaip mokomės sąžiningiau gyventi su savo vidiniu pasauliu.</p>
+          <p class="en">I have always been curious about how people feel, why certain things matter more to us than others, why we act the ways we do. Nothing ever seemed to have a definitive answer. That curiosity brought me to psychology, and it has stayed with me until today, with more and more reasons accumulating for my love for this field. With years and years I realised how amazing people are. To get to know someone deeply I see as an honour. And if I can make someone's life even a little easier, my own feels more meaningful.</p>
+          <p class="lt">Kiek save tik atsimenu, visada domėjausi žmonėmis: ką mes jaučiame, kodėl vieni dalykai mums svarbesni už kitus, kodėl elgiamės taip, kaip elgiamės. Atrodė, kad į šiuos klausimus niekada nėra vieno atsakymo. Smalsumas atvedė mane į psichologijos studijas ir lydi mane iki šiol, o priežasčių, kodėl myliu šią sritį, vis daugėja. Metams bėgant supratau, kokie nuostabūs yra žmonės. Giliai pažinti kitą man yra tarsi garbė. O jei galiu bent šiek tiek palengvinti kieno nors gyvenimą, mano pačios gyvenimas tampa prasmingesnis.</p>
 
-          <p class="en">My work is grounded in clinical psychology, emotion regulation research, and ongoing training in existential-humanistic therapy. I see therapy not as someone else telling you who you are, but as a collaborative process of understanding your experience, choices, relationships, and possibilities more deeply. Therapy goals are formed together, based on your individual sense of what you need.</p>
-          <p class="lt">Mano darbas remiasi klinikine psichologija, emocijų reguliacijos tyrimais ir egzistencinės-humanistinės terapijos studijomis. Terapiją matau ne kaip vietą, kur kažkas kitas pasako, kas tu esi, bet kaip bendrą procesą, kuriame giliau tyrinėjamos patirtys, pasirinkimai, santykiai ir galimybės keistis. Terapijos tikslus formuluojame kartu, remdamiesi tavo individualiu supratimu apie tai, ko tau reikia.</p>
+          <p class="en">I believe there is no single right way to live. People experience life differently, carry different histories, and bring different questions to psychological consultations. Traumas and experiences from the past shape how we see ourselves, how we relate to others, and how we form connections. So my goal is to get to know each person with genuine respect and in real depth — and from there, to help them navigate their thoughts, feelings, and questions, and find their own answers.</p>
+          <p class="lt">Tikiu, kad nėra vienintelio teisingo gyvenimo būdo. Žmonės gyvenimą patiria skirtingai, turi skirtingą praeitį ir į konsultacijas ateina su skirtingais klausimais. Praeities traumos ir patirtys formuoja tai, kaip matome save, kaip bendraujame su kitais ir kaip užmezgame ryšius. Todėl mano tikslas — pažinti kiekvieną žmogų iš tikrųjų giliai — ir, remdamasi tuo, padėti jam susiorientuoti savo mintyse, jausmuose ir klausimuose bei rasti savo atsakymus.</p>
 
-          <p class="en">I am especially interested in emotional intensity, emotional ups and downs, life transitions, self-worth, relationship patterns, neurodivergence, and questions of gender, sexuality, and identity. I am curious about how differences in attention, motivation, sensitivity, and emotional responsiveness shape the way a person relates to themselves, to others, and to everyday life.</p>
-          <p class="lt">Mane ypač domina emocinis intensyvumas, nuotaikos svyravimai, gyvenimo pokyčiai, savivertė, santykių problemos, neuroįvairovė bei klausimai, susiję su lytimi, seksualumu ir tapatumu. Man svarbu suprasti, kaip dėmesio, motyvacijos, jautrumo ir emocinio reagavimo skirtumai formuoja žmogaus santykį su savimi, kitais žmonėmis ir kasdieniu gyvenimu.</p>
+          <p class="en">Research shows that the relationship between a psychologist and a client is one of the most healing parts of the work itself. I want to take time with people. I am not in a hurry. I have the most experience with anxiety, neurodivergence, burnout, and mood swings — so these themes come naturally to me and feel close. My academic work focuses on emotion regulation and how learning it can help improve wellbeing. Nevertheless, I am curious about all the difficulties people bring, and I am genuinely excited to keep learning.</p>
+          <p class="lt">Tyrimai rodo, kad psichologo ir kliento santykiai yra viena iš labiausiai gydomųjų konsultacijų dalių. Konsultacijose neskubu ir skiriu laiko kurti šį santykį ir erdvę, kur saugu atsiverti. Turiu daugiausiai patirties, susijusios su nerimu, neurodivergencija, perdegimu ir nuotaikos svyravimais — todėl šios temos man yra natūralios ir artimos. Mano akademinis darbas sutelktas į emocijų reguliavimą ir tai, kaip savo emocijų supratimas ir priėmimas gali padėti pagerinti gerovę. Vis dėlto mane domina visi sunkumai, su kuriais susiduria žmonės, ir aš nuoširdžiai džiaugiuosi galėdama toliau mokytis įvairiomis temomis.</p>
 
-          <p class="en">Alongside my clinical practice, I am a researcher at ENBER — the European Network for Bipolar Emotion Regulation. Together with colleagues across Europe, I research how emotion regulation training can be implemented in therapy for people experiencing intense or rapidly changing emotions, including in the context of bipolar disorder. To me, emotion regulation is not about becoming less sensitive or feeling less deeply. It is about learning to understand, express, respond to, and stay with one's emotions in ways that support relationships, wellbeing, and a more stable sense of self.</p>
-          <p class="lt">Be savo klinikinės praktikos esu ENBER — Europos bipolinio sutrikimo emocijų reguliacijos tinklo narė — jaunoji mokslininkė. Kartu su kolegomis iš įvairių Europos šalių tyrinėju, kaip emocijų reguliacijos strategijų mokymas gali būti taikomas terapijoje žmonėms, patiriantiems intensyvias ar greitai besikeičiančias emocijas, įskaitant ir bipolinio sutrikimo kontekstą. Svarbu suprasti, kad emocijų reguliavimas nereiškia siekti tapti mažiau jautriu ar jausti mažiau. Tai mokymasis suprasti, išreikšti, atliepti ir išbūti su savo emocijomis taip, kad jos palaikytų santykius, savijautą ir stabilesnį ryšį su savimi.</p>
-
-          <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention. Outside the therapy room, music and DJing are important parts of my life. They are where I find flow, play, and aliveness — and they remind me how important it is to have places where we can lose track of time in the best way.</p>
+          <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention.</p>
           <p class="lt">Taip pat atsižvelgiu į gyvenimo tarp kultūrų, kalbų ir vietų patirtį. Kadangi dalį savo gyvenimo kūriau skirtingose šalyse, suprantu, kad mobilumas gali suteikti laisvę, augimą ir galimybes, tačiau kartu kelia klausimus apie priklausomybę, tapatybę, vienatvę ir nerimą. Nesvarbu, ar gyvenate užsienyje, ar visada gyvenote netoli namų, mane domina, kaip būtent jūsų gyvenimas jus suformavo — ir kas dabar galbūt reikalauja dėmesio.</p>
         </div>
       </div>
@@ -312,13 +367,19 @@
 
   <!-- APPROACH -->
   <section id="approach">
+    <div class="doodle" style="top:44px; right:40px; width:152px; height:163px; opacity:0.13;">
+      <img src="motif-bird-diving.png" alt="" />
+    </div>
+    <div class="doodle" style="bottom:44px; left:36px; width:204px; height:103px; opacity:0.11; transform:rotate(3deg);">
+      <img src="motif-cloud-puffy.png" alt="" />
+    </div>
     <div class="section-inner">
       <p class="section-label en">How I work</p>
       <p class="section-label lt">Požiūris</p>
       <h2 class="section-title en">Work starts with<br />your <em>experience</em>.</h2>
       <h2 class="section-title lt">Viskas prasideda<br />nuo savitos <em>patirties</em>.</h2>
-      <p class="approach-intro en">Therapy is not an evaluation of who you are. It is a collaborative process — understanding what you're living through, what has shaped you, and what could change.</p>
-      <p class="approach-intro lt">Terapija nėra jūsų asmenybės vertinimas. Tai bendradarbiavimo procesas, kurio metu siekiama suprasti, ką jūs išgyvenate, kas jus suformavo ir kas galėtų pasikeisti.</p>
+      <p class="approach-intro en">Psychological consultation is not an evaluation of who you are. It is a collaborative process — understanding what you're living through, what has shaped you, and what could change.</p>
+      <p class="approach-intro lt">Psichologinė konsultacija nėra jūsų asmenybės vertinimas. Tai bendradarbiavimo procesas, kurio metu siekiama suprasti, ką jūs išgyvenate, kas jus suformavo ir kas galėtų pasikeisti.</p>
       <div class="pillars">
         <div class="pillar">
           <div class="pillar-num">01</div>
@@ -347,17 +408,23 @@
 
   <!-- RESOURCES -->
   <section id="resources">
+    <div class="doodle" style="top:40px; right:40px; width:128px; height:182px; opacity:0.14;">
+      <img src="motif-moon-fishing.png" alt="" />
+    </div>
+    <div class="doodle" style="bottom:44px; left:36px; width:218px; height:121px; opacity:0.11; transform:rotate(-3deg);">
+      <img src="motif-cloud-swirl.png" alt="" />
+    </div>
     <div class="section-inner">
       <p class="section-label en">Blog & Resources</p>
       <p class="section-label lt">Tinklaraštis ir šaltiniai</p>
       <h2 class="section-title en">Writing & <em>useful links</em>.</h2>
       <h2 class="section-title lt">Straipsniai ir <em>naudingi šaltiniai</em>.</h2>
-      <p class="resources-intro en">A collection of research, writing, and resources related to emotion regulation, mood, and mental health — for clients, curious readers, and fellow practitioners.</p>
-      <p class="resources-intro lt">Tyrimų, straipsnių ir šaltinių rinkinys apie emocijų reguliavimą, nuotaiką ir psichinę sveikatą — klientams, skaitytojams ir kolegoms.</p>
+      <p class="resources-intro en">A collection of research, videos, and resources related to emotion regulation, mood, and mental health — for clients, curious readers, and fellow practitioners.</p>
+      <p class="resources-intro lt">Tyrimų, vaizdo įrašų ir šaltinių rinkinys apie emocijų reguliavimą, nuotaiką ir psichinę sveikatą — klientams, skaitytojams ir kolegoms.</p>
       <div class="resources-grid">
         <div>
           <p class="resources-section-title en">Research & reading</p>
-          <p class="resources-section-title lt">Tyrimai ir skaitymas</p>
+          <p class="resources-section-title lt">Tyrimai ir šaltiniai</p>
           <div class="resource-links">
             <a href="https://doi.org/10.3389/fpsyt.2024.1518106" target="_blank" class="resource-link">
               <div class="resource-link-icon">📄</div>
@@ -366,6 +433,15 @@
                 <span class="resource-link-title lt">ENBER: Emocijų disreguliacija bipoliniame sutrikime</span>
                 <span class="resource-link-sub en">Open-access research article · Frontiers in Psychiatry, 2024</span>
                 <span class="resource-link-sub lt">Atviros prieigos straipsnis · Frontiers in Psychiatry, 2024</span>
+              </div>
+            </a>
+            <a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🧠</div>
+              <div>
+                <span class="resource-link-title en">Caring for your mental health</span>
+                <span class="resource-link-title lt">Kaip rūpintis psichine sveikata</span>
+                <span class="resource-link-sub en">General advice on mental health and when to seek help · NIMH</span>
+                <span class="resource-link-sub lt">Bendros rekomendacijos apie psichinę sveikatą ir kada kreiptis pagalbos · NIMH</span>
               </div>
             </a>
             <a href="https://www.youtube.com/watch?v=MCSvTt_ZXnk" target="_blank" class="resource-link">
@@ -377,52 +453,34 @@
                 <span class="resource-link-sub lt">Vaizdo paskaita · YouTube</span>
               </div>
             </a>
-            <div class="resource-link placeholder">
-              <div class="resource-link-icon">✍️</div>
+            <a href="https://www.youtube.com/watch?v=nhqc5MD6qV0" target="_blank" class="resource-link">
+              <div class="resource-link-icon">🎬</div>
               <div>
-                <span class="resource-link-title en">An existential outlook on depression</span>
-                <span class="resource-link-title lt">Egzistencinis žvilgsnis į depresiją</span>
-                <span class="resource-link-sub en">Article coming soon</span>
-                <span class="resource-link-sub lt">Straipsnis — greitai</span>
-              </div>
-            </div>
-            <div class="resource-link placeholder">
-              <div class="resource-link-icon">🌿</div>
-              <div>
-                <span class="resource-link-title en">Nature and mental health</span>
-                <span class="resource-link-title lt">Gamta ir psichinė sveikata</span>
-                <span class="resource-link-sub en">Article coming soon</span>
-                <span class="resource-link-sub lt">Straipsnis — greitai</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <p class="resources-section-title en">From the blog</p>
-          <p class="resources-section-title lt">Iš tinklaraščio</p>
-          <div class="blog-coming" style="margin-bottom: 2rem;">
-            <strong class="en">Writing coming soon</strong>
-            <strong class="lt">Straipsniai — greitai</strong>
-            <span class="en">I'll be writing about emotion regulation, expat mental health, and what existential therapy looks like in practice.</span>
-            <span class="lt">Rašysiu apie emocijų reguliavimą, emigrantų psichinę sveikatą ir egzistencinę terapiją praktikoje.</span>
-          </div>
-          <p class="resources-section-title lt">Lietuviška bendruomenė</p>
-          <div class="resource-links">
-            <a href="https://isgirsti.lt" target="_blank" class="resource-link lt">
-              <div class="resource-link-icon">🏳️‍🌈</div>
-              <div>
-                <span class="resource-link-title">Išgirsti</span>
-                <span class="resource-link-sub">Erdvė queer socialiniam veiksmui, psichosocialinei gerovei ir kultūrinėms iniciatyvoms Lietuvoje</span>
+                <span class="resource-link-title en">What is existential psychotherapy?</span>
+                <span class="resource-link-title lt">Kas yra egzistencinė psichoterapija?</span>
+                <span class="resource-link-sub en">Video introduction to the existential approach · YouTube</span>
+                <span class="resource-link-sub lt">Vaizdo įvadas į egzistencinį požiūrį · YouTube</span>
               </div>
             </a>
           </div>
-          <p class="resources-section-title en" style="margin-top: 1.5rem;">Community resources</p>
-          <div class="resource-links en">
+        </div>
+        <div>
+          <p class="resources-section-title">Community resources</p>
+          <div class="resource-links">
             <a href="https://isgirsti.lt" target="_blank" class="resource-link">
               <div class="resource-link-icon">🏳️‍🌈</div>
               <div>
-                <span class="resource-link-title">Išgirsti (Lithuania)</span>
-                <span class="resource-link-sub">Space for queer community, psychosocial wellbeing and cultural initiatives in Lithuania</span>
+                <span class="resource-link-title en">Išgirsti (Lithuania)</span>
+                <span class="resource-link-title lt">Išgirsti</span>
+                <span class="resource-link-sub en">Space for queer community, psychosocial wellbeing and cultural initiatives in Lithuania</span>
+                <span class="resource-link-sub lt">Erdvė queer socialiniam veiksmui, psichosocialinei gerovei ir kultūrinėms iniciatyvoms Lietuvoje</span>
+              </div>
+            </a>
+            <a href="https://jaunimolinija.lt" target="_blank" class="resource-link lt">
+              <div class="resource-link-icon">📞</div>
+              <div>
+                <span class="resource-link-title">Jaunimo linija</span>
+                <span class="resource-link-sub">Nemokama emocinės paramos linija jaunimui Lietuvoje — galima skambinti arba rašyti</span>
               </div>
             </a>
           </div>
@@ -433,6 +491,12 @@
 
   <!-- CONTACT -->
   <section id="contact">
+    <div class="doodle" style="top:44px; right:40px; width:148px; height:139px; opacity:0.13; transform:rotate(-4deg);">
+      <img src="motif-moon-snail.png" alt="" />
+    </div>
+    <div class="doodle" style="bottom:40px; left:36px; width:236px; height:107px; opacity:0.11;">
+      <img src="motif-fish-pike.png" alt="" />
+    </div>
     <div class="section-inner">
       <div class="contact-grid">
         <div class="contact-info">
@@ -463,29 +527,37 @@
             <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
           </div>
         </div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);" id="contact-form">
+        <form name="contact" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field" style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);" id="contact-form">
           <input type="hidden" name="form-name" value="contact" />
           <p style="display:none;"><input name="bot-field" /></p>
           <div class="form-row">
             <div>
-              <label for="name"><span class="en">Your name</span><span class="lt">Jūsų vardas</span></label>
-              <input type="text" id="name" name="name" required />
+              <label for="name">
+                <span class="en">Your name</span><span class="lt">Jūsų vardas</span>
+              </label>
+              <input type="text" id="name" name="Your name" required />
             </div>
             <div>
-              <label for="email"><span class="en">Email</span><span class="lt">El. paštas</span></label>
-              <input type="email" id="email" name="email" required />
+              <label for="email">
+                <span class="en">Email</span><span class="lt">El. paštas</span>
+              </label>
+              <input type="email" id="email" name="Email" required />
             </div>
           </div>
           <div>
-            <label for="language"><span class="en">Preferred language</span><span class="lt">Pageidaujama kalba</span></label>
-            <select id="language" name="language">
-              <option value="english">English</option>
-              <option value="lithuanian">Lithuanian / Lietuvių</option>
+            <label for="language">
+              <span class="en">Preferred language</span><span class="lt">Pageidaujama kalba</span>
+            </label>
+            <select id="language" name="Preferred language">
+              <option value="English">English</option>
+              <option value="Lithuanian">Lithuanian / Lietuvių</option>
             </select>
           </div>
           <div>
-            <label for="message"><span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span></label>
-            <textarea id="message" name="message" required></textarea>
+            <label for="message">
+              <span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span>
+            </label>
+            <textarea id="message" name="What brings you here" required></textarea>
           </div>
           <div class="form-actions">
             <button type="submit" class="form-submit en">Send message</button>
