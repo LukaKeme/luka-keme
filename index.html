@@ -76,6 +76,8 @@
     /* Doodles on phone: smaller and tucked off the corners, but still visible */
     @media (max-width: 760px) { .doodle { transform: scale(0.6) !important; } }
     @media (max-width: 460px) { .doodle { transform: scale(0.46) !important; } }
+    /* On mobile the photo stacks on top — push the TR doodle below it */
+    @media (max-width: 900px) { .doodle-hero-tr { top: auto !important; bottom: 120px !important; right: 16px !important; } }
     /* Moon-fisher floating in the open space between Hero and About */
     .seam-doodle { position: relative; max-width: var(--max); margin: 0 auto; height: 0; z-index: 3; pointer-events: none; }
     .seam-doodle .doodle { position: absolute; }
@@ -258,7 +260,7 @@
 
   <!-- HERO -->
   <section style="padding:0; max-width:100%; position:relative; overflow:hidden;">
-    <div class="doodle" style="top:104px; right:40px; width:138px; height:146px; opacity:0.15;">
+    <div class="doodle doodle-hero-tr" style="top:104px; right:40px; width:138px; height:146px; opacity:0.15;">
       <img src="motif-moon-clouds-stars.png" alt="" />
     </div>
     <div class="hero">
