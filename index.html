@@ -73,8 +73,13 @@
     section { position: relative; overflow: hidden; padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
     .section-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
     .hero { position: relative; z-index: 1; }
-    /* Hide decorative doodles on small screens — they crowd content there */
-    @media (max-width: 700px) { .doodle { display: none; } }
+    /* Doodles on phone: smaller and tucked off the corners, but still visible */
+    @media (max-width: 760px) { .doodle { transform: scale(0.6) !important; } }
+    @media (max-width: 460px) { .doodle { transform: scale(0.46) !important; } }
+    /* Moon-fisher floating in the open space between Hero and About */
+    .seam-doodle { position: relative; max-width: var(--max); margin: 0 auto; height: 0; z-index: 3; pointer-events: none; }
+    .seam-doodle .doodle { position: absolute; }
+    @media (max-width: 760px) { .seam-doodle .doodle { left: 50% !important; top: -150px !important; transform: translateX(-50%) scale(0.55) !important; } }
     .section-label { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 1.2rem; }
     .section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--sage); display: block; flex-shrink: 0; }
     .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--green); line-height: 1.15; margin-bottom: 1.5rem; }
@@ -109,7 +114,12 @@
     .fit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
     .fit-list li { position: relative; padding-left: 1.9rem; font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.6; }
     .fit-list li::before { content: ''; position: absolute; left: 4px; top: 0.32em; width: 0.42rem; height: 0.78rem; border: solid var(--sage); border-width: 0 2px 2px 0; transform: rotate(45deg); }
-    .fit-note { font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.75; padding: 1.1rem 1.3rem; background: var(--cream); border-left: 2px solid var(--sand-dark); border-radius: 0 8px 8px 0; }
+    .fit-note { font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.75; padding: 1.1rem 1.3rem; background: var(--white); border-left: 2px solid var(--sand-dark); border-radius: 0 8px 8px 0; }
+    /* Full-width fit band below the about grid */
+    .fit-band { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; background: var(--cream); border: 1px solid var(--sand); border-radius: 16px; padding: clamp(1.8rem, 4vw, 3rem); }
+    .fit-band .fit-title { margin-bottom: 0.6rem; }
+    @media (max-width: 760px) { .fit-band { grid-template-columns: 1fr; gap: 1.8rem; padding: 1.8rem 1.5rem; } }
+
 
     /* APPROACH */
     #approach { background: var(--cream); }
@@ -248,9 +258,6 @@
 
   <!-- HERO -->
   <section style="padding:0; max-width:100%; position:relative; overflow:hidden;">
-    <div class="doodle" style="bottom:108px; left:32px; width:270px; height:331px; opacity:0.12;">
-      <img src="motif-moon-fisher.png" alt="" />
-    </div>
     <div class="doodle" style="top:104px; right:40px; width:138px; height:146px; opacity:0.15;">
       <img src="motif-moon-clouds-stars.png" alt="" />
     </div>
@@ -260,8 +267,8 @@
         <p class="hero-eyebrow lt">Klinikinė psichologė · Internetu · Arba gyvai Kaune</p>
         <h1 class="hero-title en">When your inner world feels <em>too much</em>, too little, or hard to understand.</h1>
         <h1 class="hero-title lt">Kai viduje kažko lyg <em>per daug</em>, per mažai arba sunku suprasti, kas vyksta.</h1>
-        <p class="hero-sub en">People come to psychological consultations with many different experiences — anxiety, depression, grief, burnout, emotional intensity, relationship struggles, uncertainty, or something that is not yet easy to name. The work begins wherever you are: whether it feels like distress, confusion, transition, curiosity, or just a simple wish for something to be different.</p>
-        <p class="hero-sub lt">Žmonės į psichologines konsultacijas ateina dėl įvairiausių priežasčių — nerimo, depresijos, gedulo, perdegimo, patiriamų emocijų intensyvumo, santykių sunkumų, neapibrėžtumo ir daug kitų dalykų, kuriuos dažnai sunku ir įvardinti. Darbas prasideda nuo ten, kur šiuo metu esate: ar tai būtų sunkumas, pasimetimas, pokyčiai, smalsumas ar tiesiog noras, kad kažkas būtų kitaip.</p>
+        <p class="hero-sub en">People come to psychological consultations with many different experiences such as anxiety, depression, grief, burnout, emotional intensity, relationship struggles, uncertainty, or something that is not yet easy to name. The work begins wherever you are: whether it feels like distress, confusion, transition, curiosity, or just a simple wish for something to be different.</p>
+        <p class="hero-sub lt">Žmonės į psichologines konsultacijas ateina dėl įvairiausių priežasčių, tokių kaip nerimo, depresijos, gedulo, perdegimo, patiriamų emocijų intensyvumo, santykių sunkumų, neapibrėžtumo ir daug kitų dalykų, kuriuos dažnai sunku ir įvardinti. Darbas prasideda nuo ten, kur šiuo metu esate: ar tai būtų sunkumas, pasimetimas, pokyčiai, smalsumas ar tiesiog noras, kad kažkas būtų kitaip.</p>
         <a href="#contact" class="hero-cta en"><span>Get in touch</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a href="#contact" class="hero-cta lt"><span>Susisiekite</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
@@ -279,6 +286,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Moon-fisher floating between Hero and About -->
+  <div class="seam-doodle" aria-hidden="true">
+    <div class="doodle" style="left:32%; top:-248px; width:270px; height:331px; opacity:0.12;">
+      <img src="motif-moon-fisher.png" alt="" />
+    </div>
+  </div>
 
   <!-- ABOUT -->
   <section id="about">
@@ -318,34 +332,6 @@
               <span class="credential-sub lt">Hepi.lt · Studijos tęsiasi</span>
             </div>
           </div>
-
-          <div class="fit-block">
-            <h3 class="fit-title en">Who I work with</h3>
-            <h3 class="fit-title lt">Su kuo dirbu</h3>
-            <p class="fit-intro en">I may be a good fit if you are:</p>
-            <p class="fit-intro lt">Galiu būti tinkamas pasirinkimas, jei:</p>
-            <ul class="fit-list en">
-              <li>living abroad, returning to Lithuania, or feeling between cultures;</li>
-              <li>experiencing emotional intensity, mood instability, anxiety, numbness, or self-doubt;</li>
-              <li>struggling with relationship problems, burnout, low self-worth, or identity questions;</li>
-              <li>living with depression or bipolar diagnosis;</li>
-              <li>wanting sessions in Lithuanian or English.</li>
-            </ul>
-            <ul class="fit-list lt">
-              <li>gyvenate užsienyje, grįžote į Lietuvą arba jaučiatės tarsi gyvenate tarp dviejų kultūrų;</li>
-              <li>patiriate stiprių emocijų, nuotaikos svyravimų, nerimą, apatiją ar nepasitikite savimi;</li>
-              <li>susiduriate su santykių problemomis, perdegimu, savivertės ar tapatybės klausimais;</li>
-              <li>išgyvenate depresiją, turite bipolinio sutrikimo diagnozę;</li>
-              <li>norite sesijų lietuvių arba anglų kalbomis.</li>
-            </ul>
-          </div>
-
-          <div class="fit-block">
-            <h3 class="fit-title en">Who I may not be the right fit for</h3>
-            <h3 class="fit-title lt">Kam aš galiu netikti</h3>
-            <p class="fit-note en">I may not be the best fit if you are looking for crisis intervention, medication management, or very structured short-term treatment. In those cases, I can help you think about or find more suitable options.</p>
-            <p class="fit-note lt">Aš galiu netikti, jei ieškote krizės intervencijos, oficialios psichiatrinės diagnozės, vaistų vartojimo valdymo arba labai struktūruotų trumpalaikių konsultacijų. Tokiais atvejais galiu padėti jums apsvarstyti ar surasti tinkamesnes galimybes.</p>
-          </div>
         </div>
 
         <div class="about-body">
@@ -360,6 +346,35 @@
 
           <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention.</p>
           <p class="lt">Taip pat atsižvelgiu į gyvenimo tarp kultūrų, kalbų ir vietų patirtį. Kadangi dalį savo gyvenimo kūriau skirtingose šalyse, suprantu, kad mobilumas gali suteikti laisvę, augimą ir galimybes, tačiau kartu kelia klausimus apie priklausomybę, tapatybę, vienatvę ir nerimą. Nesvarbu, ar gyvenate užsienyje, ar visada gyvenote netoli namų, mane domina, kaip būtent jūsų gyvenimas jus suformavo — ir kas dabar galbūt reikalauja dėmesio.</p>
+        </div>
+      </div>
+
+      <div class="fit-band">
+        <div class="fit-col-main">
+          <h3 class="fit-title en">Who I work with</h3>
+          <h3 class="fit-title lt">Su kuo dirbu</h3>
+          <p class="fit-intro en">I may be a good fit if you are:</p>
+          <p class="fit-intro lt">Galiu būti tinkamas pasirinkimas, jei:</p>
+          <ul class="fit-list en">
+            <li>living abroad, returning to Lithuania, or feeling between cultures;</li>
+            <li>experiencing emotional intensity, mood instability, anxiety, numbness, or self-doubt;</li>
+            <li>struggling with relationship problems, burnout, low self-worth, or identity questions;</li>
+            <li>living with depression or bipolar diagnosis;</li>
+            <li>wanting sessions in Lithuanian or English.</li>
+          </ul>
+          <ul class="fit-list lt">
+            <li>gyvenate užsienyje, grįžote į Lietuvą arba jaučiatės tarsi gyvenate tarp dviejų kultūrų;</li>
+            <li>patiriate stiprių emocijų, nuotaikos svyravimų, nerimą, apatiją ar nepasitikite savimi;</li>
+            <li>susiduriate su santykių problemomis, perdegimu, savivertės ar tapatybės klausimais;</li>
+            <li>išgyvenate depresiją, turite bipolinio sutrikimo diagnozę;</li>
+            <li>norite sesijų lietuvių arba anglų kalbomis.</li>
+          </ul>
+        </div>
+        <div class="fit-col-side">
+          <h3 class="fit-title en">Who I may not be the right fit for</h3>
+          <h3 class="fit-title lt">Kam aš galiu netikti</h3>
+          <p class="fit-note en">I may not be the best fit if you are looking for crisis intervention, medication management, or very structured short-term treatment. In those cases, I can help you think about or find more suitable options.</p>
+          <p class="fit-note lt">Aš galiu netikti, jei ieškote krizės intervencijos, oficialios psichiatrinės diagnozės, vaistų vartojimo valdymo arba labai struktūruotų trumpalaikių konsultacijų. Tokiais atvejais galiu padėti jums apsvarstyti ar surasti tinkamesnes galimybes.</p>
         </div>
       </div>
     </div>
