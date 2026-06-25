@@ -118,20 +118,27 @@
     .fit-list li::before { content: ''; position: absolute; left: 4px; top: 0.32em; width: 0.42rem; height: 0.78rem; border: solid var(--sage); border-width: 0 2px 2px 0; transform: rotate(45deg); }
     .fit-note { font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.75; padding: 1.1rem 1.3rem; background: var(--white); border-left: 2px solid var(--sand-dark); border-radius: 0 8px 8px 0; }
     /* Full-width fit band below the about grid */
-    .fit-band { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; background: var(--cream); border: 1px solid var(--sand); border-radius: 16px; padding: clamp(1.8rem, 4vw, 3rem); }
+    .fit-band { margin: 0 0 clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; background: var(--cream); border: 1px solid var(--sand); border-radius: 16px; padding: clamp(1.8rem, 4vw, 3rem); }
     .fit-band .fit-title { margin-bottom: 0.6rem; }
     @media (max-width: 760px) { .fit-band { grid-template-columns: 1fr; gap: 1.8rem; padding: 1.8rem 1.5rem; } }
+    /* Office illustration under the CV */
+    .about-illustration { margin: 2.4rem 0 0; }
+    .about-illustration img { display: block; width: 100%; height: auto; opacity: 0.9; }
+    .about-illustration figcaption { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--warm); margin-top: 0.7rem; }
+    @media (max-width: 768px) { .about-illustration { max-width: 460px; margin: 2rem auto 0.5rem; } }
 
 
     /* APPROACH */
     #approach { background: var(--cream); }
     .approach-intro { max-width: 65ch; font-size: clamp(0.95rem, 1.4vw, 1.05rem); color: var(--text-light); line-height: 1.85; margin-bottom: 3.5rem; }
-    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .pillar { padding: 2rem; background: var(--white); border-radius: 12px; border: 1px solid var(--sand); transition: transform 0.2s, box-shadow 0.2s; }
-    .pillar:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(45,74,53,0.08); }
-    .pillar-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--sand-dark); line-height: 1; margin-bottom: 1rem; }
-    .pillar-title { font-size: 1rem; font-weight: 500; color: var(--green); margin-bottom: 0.6rem; }
-    .pillar-text { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 0.5rem; }
+    .pillar { padding: 0.4rem 2.2rem; }
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { padding-right: 0; }
+    .pillar + .pillar { border-left: 1px solid var(--sand-dark); }
+    .pillar-num { font-family: var(--font-display); font-style: italic; font-size: clamp(2.8rem, 4vw, 3.7rem); font-weight: 300; color: var(--warm); line-height: 1; margin-bottom: 1.1rem; }
+    .pillar-title { font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 400; color: var(--green); margin-bottom: 0.7rem; line-height: 1.2; }
+    .pillar-text { font-size: 0.92rem; color: var(--text-light); line-height: 1.75; }
 
     /* PRICING */
     #pricing { background: var(--green); }
@@ -152,13 +159,17 @@
     .resources-intro { max-width: 60ch; font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2.5rem; }
     .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .resources-section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 1.2rem; }
-    .resource-links { display: flex; flex-direction: column; gap: 0.8rem; }
-    .resource-link { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; background: var(--cream); border-radius: 8px; text-decoration: none; border: 1px solid var(--sand); transition: border-color 0.2s, transform 0.2s; }
-    .resource-link:hover { border-color: var(--sage); transform: translateX(3px); }
-    .resource-link.placeholder { opacity: 0.55; cursor: default; pointer-events: none; border-style: dashed; }
-    .resource-link-icon { width: 2.2rem; height: 2.2rem; background: var(--sand); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
-    .resource-link-title { display: block; font-weight: 500; color: var(--green); margin-bottom: 0.15rem; font-size: 0.85rem; }
-    .resource-link-sub { color: var(--text-light); font-size: 0.76rem; line-height: 1.5; }
+    .resource-links { display: flex; flex-direction: column; }
+    .resource-link { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 1.2rem; padding: 1.15rem 0; text-decoration: none; border-top: 1px solid var(--sand); transition: padding-left 0.25s ease; }
+    .resource-link:first-child { border-top: none; padding-top: 0.2rem; }
+    .resource-link:hover { padding-left: 0.4rem; }
+    .resource-text { display: flex; flex-direction: column; }
+    .resource-kind { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.45rem; }
+    .resource-link-title { font-family: var(--font-display); font-weight: 400; color: var(--green); margin-bottom: 0.25rem; font-size: 1.18rem; line-height: 1.25; transition: color 0.2s; }
+    .resource-link:hover .resource-link-title { color: var(--warm); }
+    .resource-link-sub { color: var(--text-light); font-size: 0.8rem; line-height: 1.55; }
+    .resource-arrow { color: var(--sand-dark); font-size: 1.05rem; transition: transform 0.25s ease, color 0.2s; }
+    .resource-link:hover .resource-arrow { color: var(--green); transform: translate(3px, -3px); }
     .blog-coming { padding: 2.5rem; border: 1px dashed var(--sand-dark); border-radius: 12px; color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
     .blog-coming strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
 
@@ -207,7 +218,7 @@
     @media (max-width: 1024px) {
       .hero { gap: 2.5rem; }
       .about-grid { grid-template-columns: 1fr 1.2fr; gap: 3rem; }
-      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .pillars { grid-template-columns: repeat(3, 1fr); }
       .resources-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
     }
@@ -223,6 +234,9 @@
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .resources-grid { grid-template-columns: 1fr; gap: 2rem; }
       .pillars { grid-template-columns: 1fr; }
+      .pillar { padding: 1.8rem 0 0; }
+      .pillar:first-child { padding-top: 0; }
+      .pillar + .pillar { border-left: none; border-top: 1px solid var(--sand-dark); }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
@@ -233,7 +247,7 @@
     /* SMALL MOBILE — 480px */
     @media (max-width: 480px) {
       .hero-photo-wrap { width: min(200px, 70%); }
-      .pillar { padding: 1.5rem; }
+      .pillar { padding: 1.6rem 0 0; }
       .about-credentials { gap: 0.7rem; }
       .credential { padding: 0.8rem 1rem; }
       .dj-oval img { width: 160px; height: 190px; }
@@ -305,6 +319,35 @@
       <img src="motif-cloud-wave.png" alt="" />
     </div>
     <div class="section-inner">
+      <div class="fit-band">
+        <div class="fit-col-main">
+          <h3 class="fit-title en">Who I work with</h3>
+          <h3 class="fit-title lt">Su kuo dirbu</h3>
+          <p class="fit-intro en">I may be a good fit if you are:</p>
+          <p class="fit-intro lt">Galiu būti tinkamas pasirinkimas, jei:</p>
+          <ul class="fit-list en">
+            <li>living abroad, returning to Lithuania, or feeling between cultures;</li>
+            <li>experiencing emotional intensity, mood instability, anxiety, numbness, or self-doubt;</li>
+            <li>struggling with relationship problems, burnout, low self-worth, or identity questions;</li>
+            <li>living with depression or bipolar diagnosis;</li>
+            <li>wanting sessions in Lithuanian or English.</li>
+          </ul>
+          <ul class="fit-list lt">
+            <li>gyvenate užsienyje, grįžote į Lietuvą arba jaučiatės tarsi gyvenate tarp dviejų kultūrų;</li>
+            <li>patiriate stiprių emocijų, nuotaikos svyravimų, nerimą, apatiją ar nepasitikite savimi;</li>
+            <li>susiduriate su santykių problemomis, perdegimu, savivertės ar tapatybės klausimais;</li>
+            <li>išgyvenate depresiją, turite bipolinio sutrikimo diagnozę;</li>
+            <li>norite sesijų lietuvių arba anglų kalbomis.</li>
+          </ul>
+        </div>
+        <div class="fit-col-side">
+          <h3 class="fit-title en">Who I may not be the right fit for</h3>
+          <h3 class="fit-title lt">Kam aš galiu netikti</h3>
+          <p class="fit-note en">I may not be the best fit if you are looking for crisis intervention, medication management, or very structured short-term treatment. In those cases, I can help you think about or find more suitable options.</p>
+          <p class="fit-note lt">Aš galiu netikti, jei ieškote krizės intervencijos, oficialios psichiatrinės diagnozės, vaistų vartojimo valdymo arba labai struktūruotų trumpalaikių konsultacijų. Tokiais atvejais galiu padėti jums apsvarstyti ar surasti tinkamesnes galimybes.</p>
+        </div>
+      </div>
+
       <div class="about-grid">
         <div class="about-aside">
           <p class="section-label en">About</p>
@@ -334,6 +377,12 @@
               <span class="credential-sub lt">Hepi.lt · Studijos tęsiasi</span>
             </div>
           </div>
+
+          <figure class="about-illustration">
+            <img src="office-kaunas.png" alt="Hand-drawn line illustration of the in-person consultation room in Kaunas" />
+            <figcaption class="en">My in-person room in Kaunas</figcaption>
+            <figcaption class="lt">Mano kabinetas Kaune</figcaption>
+          </figure>
         </div>
 
         <div class="about-body">
@@ -348,35 +397,6 @@
 
           <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention.</p>
           <p class="lt">Taip pat atsižvelgiu į gyvenimo tarp kultūrų, kalbų ir vietų patirtį. Kadangi dalį savo gyvenimo kūriau skirtingose šalyse, suprantu, kad mobilumas gali suteikti laisvę, augimą ir galimybes, tačiau kartu kelia klausimus apie priklausomybę, tapatybę, vienatvę ir nerimą. Nesvarbu, ar gyvenate užsienyje, ar visada gyvenote netoli namų, mane domina, kaip būtent jūsų gyvenimas jus suformavo — ir kas dabar galbūt reikalauja dėmesio.</p>
-        </div>
-      </div>
-
-      <div class="fit-band">
-        <div class="fit-col-main">
-          <h3 class="fit-title en">Who I work with</h3>
-          <h3 class="fit-title lt">Su kuo dirbu</h3>
-          <p class="fit-intro en">I may be a good fit if you are:</p>
-          <p class="fit-intro lt">Galiu būti tinkamas pasirinkimas, jei:</p>
-          <ul class="fit-list en">
-            <li>living abroad, returning to Lithuania, or feeling between cultures;</li>
-            <li>experiencing emotional intensity, mood instability, anxiety, numbness, or self-doubt;</li>
-            <li>struggling with relationship problems, burnout, low self-worth, or identity questions;</li>
-            <li>living with depression or bipolar diagnosis;</li>
-            <li>wanting sessions in Lithuanian or English.</li>
-          </ul>
-          <ul class="fit-list lt">
-            <li>gyvenate užsienyje, grįžote į Lietuvą arba jaučiatės tarsi gyvenate tarp dviejų kultūrų;</li>
-            <li>patiriate stiprių emocijų, nuotaikos svyravimų, nerimą, apatiją ar nepasitikite savimi;</li>
-            <li>susiduriate su santykių problemomis, perdegimu, savivertės ar tapatybės klausimais;</li>
-            <li>išgyvenate depresiją, turite bipolinio sutrikimo diagnozę;</li>
-            <li>norite sesijų lietuvių arba anglų kalbomis.</li>
-          </ul>
-        </div>
-        <div class="fit-col-side">
-          <h3 class="fit-title en">Who I may not be the right fit for</h3>
-          <h3 class="fit-title lt">Kam aš galiu netikti</h3>
-          <p class="fit-note en">I may not be the best fit if you are looking for crisis intervention, medication management, or very structured short-term treatment. In those cases, I can help you think about or find more suitable options.</p>
-          <p class="fit-note lt">Aš galiu netikti, jei ieškote krizės intervencijos, oficialios psichiatrinės diagnozės, vaistų vartojimo valdymo arba labai struktūruotų trumpalaikių konsultacijų. Tokiais atvejais galiu padėti jums apsvarstyti ar surasti tinkamesnes galimybes.</p>
         </div>
       </div>
     </div>
@@ -444,61 +464,73 @@
           <p class="resources-section-title lt">Tyrimai ir šaltiniai</p>
           <div class="resource-links">
             <a href="https://doi.org/10.3389/fpsyt.2024.1518106" target="_blank" class="resource-link">
-              <div class="resource-link-icon">📄</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind en">Research article</span>
+                <span class="resource-kind lt">Mokslinis straipsnis</span>
                 <span class="resource-link-title en">ENBER: Emotion Dysregulation in Bipolar Disorder</span>
                 <span class="resource-link-title lt">ENBER: Emocijų disreguliacija bipoliniame sutrikime</span>
                 <span class="resource-link-sub en">Open-access research article · Frontiers in Psychiatry, 2024</span>
                 <span class="resource-link-sub lt">Atviros prieigos straipsnis · Frontiers in Psychiatry, 2024</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
             <a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🧠</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind en">Guide</span>
+                <span class="resource-kind lt">Vadovas</span>
                 <span class="resource-link-title en">Caring for your mental health</span>
                 <span class="resource-link-title lt">Kaip rūpintis psichine sveikata</span>
                 <span class="resource-link-sub en">General advice on mental health and when to seek help · NIMH</span>
                 <span class="resource-link-sub lt">Bendros rekomendacijos apie psichinę sveikatą ir kada kreiptis pagalbos · NIMH</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=MCSvTt_ZXnk" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🎬</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind en">Video lecture</span>
+                <span class="resource-kind lt">Vaizdo paskaita</span>
                 <span class="resource-link-title en">DBT in Bipolar Disorders — ENBER lecture</span>
                 <span class="resource-link-title lt">DBT bipoliniuose sutrikimuose — ENBER paskaita</span>
                 <span class="resource-link-sub en">Video lecture by an ENBER colleague · YouTube</span>
                 <span class="resource-link-sub lt">Vaizdo paskaita · YouTube</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=nhqc5MD6qV0" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🎬</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind en">Video</span>
+                <span class="resource-kind lt">Vaizdo įrašas</span>
                 <span class="resource-link-title en">What is existential psychotherapy?</span>
                 <span class="resource-link-title lt">Kas yra egzistencinė psichoterapija?</span>
                 <span class="resource-link-sub en">Video introduction to the existential approach · YouTube</span>
                 <span class="resource-link-sub lt">Vaizdo įvadas į egzistencinį požiūrį · YouTube</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
           </div>
         </div>
         <div>
-          <p class="resources-section-title">Community resources</p>
+          <p class="resources-section-title en">Community resources</p>
+          <p class="resources-section-title lt">Bendruomenės šaltiniai</p>
           <div class="resource-links">
             <a href="https://isgirsti.lt" target="_blank" class="resource-link">
-              <div class="resource-link-icon">🏳️‍🌈</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind en">Organisation</span>
+                <span class="resource-kind lt">Organizacija</span>
                 <span class="resource-link-title en">Išgirsti (Lithuania)</span>
                 <span class="resource-link-title lt">Išgirsti</span>
                 <span class="resource-link-sub en">Space for queer community, psychosocial wellbeing and cultural initiatives in Lithuania</span>
                 <span class="resource-link-sub lt">Erdvė queer socialiniam veiksmui, psichosocialinei gerovei ir kultūrinėms iniciatyvoms Lietuvoje</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
             <a href="https://jaunimolinija.lt" target="_blank" class="resource-link lt">
-              <div class="resource-link-icon">📞</div>
-              <div>
+              <span class="resource-text">
+                <span class="resource-kind">Pagalbos linija</span>
                 <span class="resource-link-title">Jaunimo linija</span>
                 <span class="resource-link-sub">Nemokama emocinės paramos linija jaunimui Lietuvoje — galima skambinti arba rašyti</span>
-              </div>
+              </span>
+              <span class="resource-arrow">&#8599;</span>
             </a>
           </div>
         </div>
