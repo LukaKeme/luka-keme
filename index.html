@@ -49,7 +49,7 @@
       { "@type": "AdministrativeArea", "name": "Online worldwide" }
     ],
     "availableLanguage": ["English", "Lithuanian"],
-    "knowsAbout": ["Emotion regulation", "Anxiety", "Mood disorders", "Burnout", "Existential-humanistic therapy", "Expat mental health", "Identity"],
+    "knowsAbout": ["Emotion regulation", "ADHD", "Neurodivergence", "Anxiety", "Mood disorders", "Burnout", "Existential-humanistic therapy", "Expat mental health", "Identity"],
     "founder": {
       "@type": "Person",
       "name": "Luka Kemežytė",
@@ -96,7 +96,7 @@
     }
     .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--green); text-decoration: none; letter-spacing: 0.02em; }
     .nav-right { display: flex; align-items: center; gap: 2rem; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green); }
     .nav-lang { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand-dark); cursor: pointer; border: 1px solid var(--sand-dark); padding: 0.3rem 0.7rem; border-radius: 2rem; background: none; font-family: var(--font-body); transition: all 0.2s; white-space: nowrap; }
@@ -124,19 +124,15 @@
     .hero-badge { position: absolute; bottom: -1rem; right: -1rem; z-index: 2; background: var(--white); border: 1px solid var(--sand); border-radius: 1rem; padding: 0.8rem 1.2rem; font-size: 0.78rem; color: var(--text-light); box-shadow: 0 4px 20px rgba(45,74,53,0.08); line-height: 1.5; }
     .hero-badge strong { display: block; color: var(--green); font-weight: 500; }
 
-    /* SECTIONS */
     /* DOODLE SYSTEM */
     .doodle { position: absolute; pointer-events: none; mix-blend-mode: multiply; user-select: none; z-index: 0; }
     .doodle img { display: block; width: 100%; height: 100%; object-fit: contain; }
     section { position: relative; overflow: hidden; padding: var(--gap) clamp(1.5rem, 5vw, 3rem); }
     .section-inner { max-width: var(--max); margin: 0 auto; position: relative; z-index: 1; }
     .hero { position: relative; z-index: 1; }
-    /* Doodles on phone: smaller and tucked off the corners, but still visible */
     @media (max-width: 760px) { .doodle { transform: scale(0.6) !important; } }
     @media (max-width: 460px) { .doodle { transform: scale(0.46) !important; } }
-    /* On mobile the photo stacks on top — push the TR doodle below it */
     @media (max-width: 900px) { .doodle-hero-tr { top: auto !important; bottom: 120px !important; right: 16px !important; } }
-    /* Moon-fisher floating in the open space between Hero and About */
     .seam-doodle { position: relative; max-width: var(--max); margin: 0 auto; height: 0; z-index: 3; pointer-events: none; }
     .seam-doodle .doodle { position: absolute; }
     @media (max-width: 760px) { .seam-doodle .doodle { left: 50% !important; top: -150px !important; transform: translateX(-50%) scale(0.55) !important; } }
@@ -156,35 +152,21 @@
     .about-body p { font-size: clamp(0.95rem, 1.4vw, 1.02rem); color: var(--text-light); line-height: 1.85; margin-bottom: 1.4rem; }
     .about-body p:last-child { margin-bottom: 0; }
     .about-body strong { color: var(--green); font-weight: 500; }
-    .about-languages { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .lang-tag { font-size: 0.76rem; padding: 0.3rem 0.8rem; border-radius: 2rem; border: 1px solid var(--sand-dark); color: var(--text-light); }
-
-    /* DJ oval sidebar */
-    .dj-oval { margin-top: 2rem; text-align: left; }
-    .dj-oval img { width: 200px; height: 240px; object-fit: cover; object-position: center 60%; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; display: block; margin: 0 auto; filter: brightness(0.93); }
-    .dj-oval-caption { margin-top: 0.6rem; font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.03em; line-height: 1.5; text-align: left; }
-    /* DJ float inline */
-    .dj-float { float: right; width: 180px; height: 220px; object-fit: cover; object-position: center 40%; border-radius: 50% 50% 48% 52% / 55% 55% 45% 45%; margin: 0 0 1rem 1.8rem; filter: brightness(0.93); }
 
     /* WHO I WORK WITH */
-    .fit-block { margin-top: 2.6rem; padding-top: 2.2rem; border-top: 1px solid var(--sand); }
-    .fit-block + .fit-block { margin-top: 2rem; }
     .fit-title { font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
     .fit-intro { font-size: clamp(0.95rem, 1.4vw, 1.02rem); color: var(--text-light); line-height: 1.7; margin-bottom: 1.2rem; }
     .fit-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
     .fit-list li { position: relative; padding-left: 1.9rem; font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.6; }
     .fit-list li::before { content: ''; position: absolute; left: 4px; top: 0.32em; width: 0.42rem; height: 0.78rem; border: solid var(--sage); border-width: 0 2px 2px 0; transform: rotate(45deg); }
     .fit-note { font-size: clamp(0.92rem, 1.4vw, 1rem); color: var(--text-light); line-height: 1.75; padding: 1.1rem 1.3rem; background: var(--white); border-left: 2px solid var(--sand-dark); border-radius: 0 8px 8px 0; }
-    /* Full-width fit band below the about grid */
     .fit-band { margin: 0 0 clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; background: var(--cream); border: 1px solid var(--sand); border-radius: 16px; padding: clamp(1.8rem, 4vw, 3rem); }
     .fit-band .fit-title { margin-bottom: 0.6rem; }
     @media (max-width: 760px) { .fit-band { grid-template-columns: 1fr; gap: 1.8rem; padding: 1.8rem 1.5rem; } }
-    /* Office illustration under the CV */
     .about-illustration { margin: 2.4rem 0 0; }
     .about-illustration img { display: block; width: 100%; height: auto; opacity: 0.9; }
     .about-illustration figcaption { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--warm); margin-top: 0.7rem; }
     @media (max-width: 768px) { .about-illustration { max-width: 460px; margin: 2rem auto 0.5rem; } }
-
 
     /* APPROACH */
     #approach { background: var(--cream); }
@@ -198,19 +180,58 @@
     .pillar-title { font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.65rem); font-weight: 400; color: var(--green); margin-bottom: 0.7rem; line-height: 1.2; }
     .pillar-text { font-size: 0.92rem; color: var(--text-light); line-height: 1.75; }
 
-    /* PRICING */
-    #pricing { background: var(--green); }
-    #pricing .section-label { color: var(--sage); }
-    #pricing .section-label::before { background: var(--sage); }
-    #pricing .section-title { color: var(--cream); }
-    .pricing-sub { font-size: 1rem; color: rgba(245,240,232,0.7); max-width: 55ch; margin-bottom: 3rem; line-height: 1.8; }
-    .pricing-info-block { max-width: 640px; background: rgba(245,240,232,0.08); border: 1px solid rgba(245,240,232,0.18); border-radius: 14px; padding: 2.5rem; }
-    .pricing-info-block p { font-size: 1rem; color: rgba(245,240,232,0.75); line-height: 1.85; margin-bottom: 1rem; }
-    .pricing-info-block p:last-of-type { margin-bottom: 0; }
-    .pricing-clinic-note { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(245,240,232,0.15); font-size: 0.88rem; color: rgba(245,240,232,0.55); line-height: 1.7; }
-    .pricing-clinic-note a { color: rgba(245,240,232,0.75); text-decoration: underline; text-underline-offset: 3px; }
-    .pricing-cta { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 1.5rem; background: var(--cream); color: var(--green); padding: 0.85rem 1.8rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: opacity 0.2s, transform 0.2s; }
-    .pricing-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    /* PRICES */
+    #prices { background: var(--white); }
+    .prices-intro { max-width: 58ch; font-size: clamp(0.95rem, 1.4vw, 1.05rem); color: var(--text-light); line-height: 1.85; margin-bottom: 3rem; }
+    .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .price-tier-block { padding: 0.4rem 2.4rem; }
+    .price-tier-block:first-child { padding-left: 0; }
+    .price-tier-block:last-child { padding-right: 0; }
+    .price-tier-block + .price-tier-block { border-left: 1px solid var(--sand-dark); }
+    .price-tier { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.9rem; display: block; }
+    .price-amount { font-family: var(--font-display); font-weight: 400; color: var(--green); line-height: 1; font-size: clamp(2.4rem, 4vw, 3.2rem); margin-bottom: 0.7rem; }
+    .price-amount .price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--text-light); }
+    .price-detail { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; }
+    .price-note { margin-top: 2.8rem; padding-top: 1.8rem; border-top: 1px solid var(--sand); font-size: 0.92rem; color: var(--text-light); line-height: 1.8; max-width: 62ch; }
+    .price-note strong { color: var(--green); font-weight: 500; }
+    @media (max-width: 760px) {
+      .price-grid { grid-template-columns: 1fr; }
+      .price-tier-block { padding: 1.8rem 0 0; }
+      .price-tier-block:first-child { padding-top: 0; }
+      .price-tier-block + .price-tier-block { border-left: none; border-top: 1px solid var(--sand-dark); }
+    }
+
+    /* SUPPORT GROUPS */
+    #groups { background: var(--green); }
+    #groups .section-label { color: var(--sage); }
+    #groups .section-label::before { background: var(--sage); }
+    #groups .section-title { color: var(--cream); font-size: clamp(1.9rem, 3vw, 2.6rem); max-width: 22ch; }
+    #groups .section-title em { color: var(--sand-dark); }
+    #groups .doodle { mix-blend-mode: screen; }
+    .groups-body { display: grid; grid-template-columns: 0.8fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: stretch; margin-top: 0.6rem; }
+    .groups-info { display: flex; flex-direction: column; }
+    .adhd-lead { font-size: clamp(0.95rem, 1.4vw, 1.02rem); color: rgba(245,240,232,0.74); line-height: 1.8; margin-bottom: 2rem; }
+    .adhd-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1.8rem; padding-top: 1.9rem; margin-bottom: 2rem; border-top: 1px solid rgba(245,240,232,0.18); }
+    .adhd-meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .adhd-meta-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); }
+    .adhd-meta-value { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--cream); line-height: 1.25; }
+    .adhd-cta-block { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: auto; padding-top: 0.4rem; }
+    .adhd-cta { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--cream); color: var(--green); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
+    .adhd-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .adhd-weeks { list-style: none; display: flex; flex-direction: column; margin: 0; }
+    .adhd-week { display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; align-items: start; padding: 1.3rem 0; border-top: 1px solid rgba(245,240,232,0.14); }
+    .adhd-week:first-child { border-top: none; padding-top: 0; }
+    .adhd-num { font-family: var(--font-display); font-style: italic; font-size: 1.8rem; font-weight: 300; color: var(--sand-dark); line-height: 1; }
+    .adhd-week-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--cream); line-height: 1.25; margin-bottom: 0.3rem; }
+    .adhd-week-text { font-size: 0.86rem; color: rgba(245,240,232,0.62); line-height: 1.6; }
+    @media (max-width: 860px) {
+      .groups-body { grid-template-columns: 1fr; gap: 2.4rem; }
+      #groups .section-title { max-width: none; }
+      .adhd-cta-block { margin-top: 1.4rem; }
+    }
+    @media (max-width: 460px) {
+      .adhd-meta { grid-template-columns: 1fr; gap: 1.2rem; }
+    }
 
     /* RESOURCES */
     #resources { background: var(--white); }
@@ -228,8 +249,6 @@
     .resource-link-sub { color: var(--text-light); font-size: 0.8rem; line-height: 1.55; }
     .resource-arrow { color: var(--sand-dark); font-size: 1.05rem; transition: transform 0.25s ease, color 0.2s; }
     .resource-link:hover .resource-arrow { color: var(--green); transform: translate(3px, -3px); }
-    .blog-coming { padding: 2.5rem; border: 1px dashed var(--sand-dark); border-radius: 12px; color: var(--text-light); font-size: 0.9rem; line-height: 1.7; }
-    .blog-coming strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--green); margin-bottom: 0.5rem; }
 
     /* CONTACT */
     #contact { background: var(--cream); }
@@ -239,20 +258,15 @@
     .contact-info p { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; }
     .contact-details { display: flex; flex-direction: column; gap: 0.8rem; }
     .contact-detail { display: flex; align-items: center; gap: 0.8rem; font-size: 0.88rem; color: var(--text-light); }
-    .contact-detail-icon { width: 2rem; height: 2rem; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; }
     .contact-detail a { color: var(--green); text-decoration: none; font-weight: 500; }
     .form-actions { margin-top: auto; padding-top: 1.2rem; }
-    .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.9rem 2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
-    .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
-    .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; margin-top: 0; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
-    .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+    .calendly-btn { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--green); color: var(--cream); padding: 0.9rem 2rem; border-radius: 2rem; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
     .calendly-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
     form { display: flex; flex-direction: column; gap: 1.2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     label { display: block; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.4rem; }
     input, textarea, select { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--sand-dark); border-radius: 8px; background: var(--white); font-family: var(--font-body); font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; }
     input:focus, textarea:focus, select:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(122,158,130,0.15); }
-    .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.95rem 2.2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; white-space: nowrap; }
     .form-submit { background: var(--green); color: var(--cream); border: none; padding: 0.95rem 2.2rem; border-radius: 2rem; font-family: var(--font-body); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: background 0.25s, transform 0.2s; align-self: flex-start; }
     .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
 
@@ -271,24 +285,20 @@
     .hero-cta      { animation: fadeUp 0.6s 0.3s ease both; }
     .hero-image    { animation: fadeUp 0.8s 0.15s ease both; }
 
-    /* MOBILE */
-    /* TABLET — 1024px */
+    /* TABLET */
     @media (max-width: 1024px) {
       .hero { gap: 2.5rem; }
       .about-grid { grid-template-columns: 1fr 1.2fr; gap: 3rem; }
-      .pillars { grid-template-columns: repeat(3, 1fr); }
       .resources-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
     }
-
-    /* MOBILE — 768px */
+    /* MOBILE */
     @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; padding-bottom: 3rem; gap: 2rem; }
       .hero-image { order: -1; }
       .hero-photo-wrap { width: min(240px, 75%); margin: 0 auto; }
       .hero-sub { max-width: 100%; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .about-aside { position: static; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .resources-grid { grid-template-columns: 1fr; gap: 2rem; }
       .pillars { grid-template-columns: 1fr; }
@@ -301,15 +311,11 @@
       .hero-badge { right: 0; font-size: 0.72rem; padding: 0.6rem 0.9rem; }
       footer { flex-direction: column; text-align: center; gap: 0.4rem; }
     }
-
-    /* SMALL MOBILE — 480px */
     @media (max-width: 480px) {
       .hero-photo-wrap { width: min(200px, 70%); }
       .pillar { padding: 1.6rem 0 0; }
       .about-credentials { gap: 0.7rem; }
       .credential { padding: 0.8rem 1rem; }
-      .dj-oval img { width: 160px; height: 190px; }
-      .resource-link { padding: 0.8rem 1rem; }
       .contact-detail { font-size: 0.82rem; }
     }
   </style>
@@ -323,6 +329,8 @@
       <ul class="nav-links">
         <li><a href="#about" class="en">About</a><a href="#about" class="lt">Apie</a></li>
         <li><a href="#approach" class="en">Approach</a><a href="#approach" class="lt">Požiūris</a></li>
+        <li><a href="#prices" class="en">Prices</a><a href="#prices" class="lt">Kainos</a></li>
+        <li><a href="#groups" class="en">Support groups</a><a href="#groups" class="lt">Grupės</a></li>
         <li><a href="#resources" class="en">Resources</a><a href="#resources" class="lt">Šaltiniai</a></li>
         <li><a href="#contact" class="en">Contact</a><a href="#contact" class="lt">Kontaktai</a></li>
       </ul>
@@ -351,7 +359,7 @@
           <div class="hero-photo-bg"></div>
           <img src="photo.jpg" alt="Luka Kemežytė, clinical psychologist online and in Kaunas" class="hero-photo" />
           <div class="hero-badge">
-            <strong class="en">Sessions in English & Lithuanian</strong>
+            <strong class="en">Sessions in English &amp; Lithuanian</strong>
             <strong class="lt">Anglų ir lietuvių kalbomis</strong>
             <span class="en">Online · Worldwide</span>
             <span class="lt">Internetu · Visame pasaulyje</span>
@@ -446,13 +454,10 @@
         <div class="about-body">
           <p class="en">I have always been curious about how people feel, why certain things matter more to us than others, why we act the ways we do. Nothing ever seemed to have a definitive answer. That curiosity brought me to psychology, and it has stayed with me until today, with more and more reasons accumulating for my love for this field. With years and years I realised how amazing people are. To get to know someone deeply I see as an honour. And if I can make someone's life even a little easier, my own feels more meaningful.</p>
           <p class="lt">Kiek save tik atsimenu, visada domėjausi žmonėmis: ką mes jaučiame, kodėl vieni dalykai mums svarbesni už kitus, kodėl elgiamės taip, kaip elgiamės. Atrodė, kad į šiuos klausimus niekada nėra vieno atsakymo. Smalsumas atvedė mane į psichologijos studijas ir lydi mane iki šiol, o priežasčių, kodėl myliu šią sritį, vis daugėja. Metams bėgant supratau, kokie nuostabūs yra žmonės. Giliai pažinti kitą man yra tarsi garbė. O jei galiu bent šiek tiek palengvinti kieno nors gyvenimą, mano pačios gyvenimas tampa prasmingesnis.</p>
-
           <p class="en">I believe there is no single right way to live. People experience life differently, carry different histories, and bring different questions to psychological consultations. Traumas and experiences from the past shape how we see ourselves, how we relate to others, and how we form connections. So my goal is to get to know each person with genuine respect and in real depth — and from there, to help them navigate their thoughts, feelings, and questions, and find their own answers.</p>
           <p class="lt">Tikiu, kad nėra vienintelio teisingo gyvenimo būdo. Žmonės gyvenimą patiria skirtingai, turi skirtingą praeitį ir į konsultacijas ateina su skirtingais klausimais. Praeities traumos ir patirtys formuoja tai, kaip matome save, kaip bendraujame su kitais ir kaip užmezgame ryšius. Todėl mano tikslas — pažinti kiekvieną žmogų iš tikrųjų giliai — ir, remdamasi tuo, padėti jam susiorientuoti savo mintyse, jausmuose ir klausimuose bei rasti savo atsakymus.</p>
-
           <p class="en">Research shows that the relationship between a psychologist and a client is one of the most healing parts of the work itself. I want to take time with people. I am not in a hurry. I have the most experience with anxiety, neurodivergence, burnout, and mood swings — so these themes come naturally to me and feel close. My academic work focuses on emotion regulation and how learning it can help improve wellbeing. Nevertheless, I am curious about all the difficulties people bring, and I am genuinely excited to keep learning.</p>
           <p class="lt">Tyrimai rodo, kad psichologo ir kliento santykiai yra viena iš labiausiai gydomųjų konsultacijų dalių. Konsultacijose neskubu ir skiriu laiko kurti šį santykį ir erdvę, kur saugu atsiverti. Turiu daugiausiai patirties, susijusios su nerimu, neurodivergencija, perdegimu ir nuotaikos svyravimais — todėl šios temos man yra natūralios ir artimos. Mano akademinis darbas sutelktas į emocijų reguliavimą ir tai, kaip savo emocijų supratimas ir priėmimas gali padėti pagerinti gerovę. Vis dėlto mane domina visi sunkumai, su kuriais susiduria žmonės, ir aš nuoširdžiai džiaugiuosi galėdama toliau mokytis įvairiomis temomis.</p>
-
           <p class="en">I also bring sensitivity to the experience of living between cultures, languages, and places. Having built parts of my own life across different countries, I understand that mobility can bring freedom, growth, and possibility, but also questions of belonging, identity, loneliness, and restlessness. Whether you live internationally or have always lived close to home, I am interested in the particular way your life has shaped you — and what may now be asking for attention.</p>
           <p class="lt">Taip pat atsižvelgiu į gyvenimo tarp kultūrų, kalbų ir vietų patirtį. Kadangi dalį savo gyvenimo kūriau skirtingose šalyse, suprantu, kad mobilumas gali suteikti laisvę, augimą ir galimybes, tačiau kartu kelia klausimus apie priklausomybę, tapatybę, vienatvę ir nerimą. Nesvarbu, ar gyvenate užsienyje, ar visada gyvenote netoli namų, mane domina, kaip būtent jūsų gyvenimas jus suformavo — ir kas dabar galbūt reikalauja dėmesio.</p>
         </div>
@@ -501,6 +506,127 @@
     </div>
   </section>
 
+  <!-- PRICES -->
+  <section id="prices">
+    <div class="doodle" style="top:40px; right:40px; width:120px; height:171px; opacity:0.13;">
+      <img src="motif-moon-fishing.png" alt="" />
+    </div>
+    <div class="doodle" style="bottom:44px; left:36px; width:212px; height:99px; opacity:0.11; transform:rotate(-3deg);">
+      <img src="motif-cloud-wave.png" alt="" />
+    </div>
+    <div class="section-inner">
+      <p class="section-label en">Prices</p>
+      <p class="section-label lt">Kainos</p>
+      <h2 class="section-title en">Individual <em>consultations</em>.</h2>
+      <h2 class="section-title lt">Individualios <em>konsultacijos</em>.</h2>
+      <p class="prices-intro en">One-to-one psychological consultations, online or in person in Kaunas. Every consultation lasts 50 minutes.</p>
+      <p class="prices-intro lt">Individualios psichologinės konsultacijos internetu arba gyvai Kaune. Kiekviena konsultacija trunka 50 minučių.</p>
+      <div class="price-grid">
+        <div class="price-tier-block">
+          <span class="price-tier"><span class="en">In Lithuania</span><span class="lt">Lietuvoje</span></span>
+          <div class="price-amount">€50 <span class="price-unit"><span class="en">/ 50 min</span><span class="lt">/ 50 min.</span></span></div>
+          <p class="price-detail en">For clients based in Lithuania — online or in person in Kaunas.</p>
+          <p class="price-detail lt">Klientams, gyvenantiems Lietuvoje — internetu arba gyvai Kaune.</p>
+        </div>
+        <div class="price-tier-block">
+          <span class="price-tier"><span class="en">International</span><span class="lt">Svetur</span></span>
+          <div class="price-amount">€90–110 <span class="price-unit"><span class="en">/ 50 min</span><span class="lt">/ 50 min.</span></span></div>
+          <p class="price-detail en">For clients based outside Lithuania — the exact fee depends on your location.</p>
+          <p class="price-detail lt">Klientams, gyvenantiems ne Lietuvoje — tiksli kaina priklauso nuo jūsų gyvenamosios vietos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT GROUPS -->
+  <section id="groups">
+    <div class="doodle" style="top:48px; right:40px; width:132px; height:140px; opacity:0.16;">
+      <img src="motif-moon-clouds-stars.png" alt="" />
+    </div>
+    <div class="section-inner">
+      <p class="section-label en">Registration open</p>
+      <p class="section-label lt">Registracija atidaryta</p>
+      <h2 class="section-title en">Six-week <em>ADHD</em> groups,<br />in English and Lithuanian.</h2>
+      <h2 class="section-title lt">Šešių savaičių <em>ADHD</em> grupės<br />anglų ir lietuvių kalbomis.</h2>
+
+      <div class="groups-body">
+        <div class="groups-info">
+          <p class="adhd-lead en">This autumn I'm running two parallel ADHD groups — one in English, one in Lithuanian. Small-group psychoeducation and support for adults with ADHD, whether you have a diagnosis or are still working out whether it fits. One research-grounded topic each week, followed by real conversation with people who relate to you.</p>
+          <p class="adhd-lead lt">Šį rudenį pradedu dvi lygiagrečias ADHD palaikomąsias grupes — vieną anglų, kitą lietuvių kalba. Nedidelės grupės psichoedukacija ir palaikymas suaugusiems su ADHD — turintiems diagnozę arba dar besiaiškinantiems, ar tai apie juos. Kiekvieną savaitę viena tyrimais grįsta tema ir tikras pokalbis su žmonėmis, kurie jaučiasi panašiai kaip tu.</p>
+
+          <div class="adhd-meta">
+                <div class="adhd-meta-item">
+                  <span class="adhd-meta-label"><span class="en">Sessions</span><span class="lt">Sesijos</span></span>
+                  <span class="adhd-meta-value"><span class="en">6 × 60 min, online</span><span class="lt">6 × 60 min., internetu</span></span>
+                </div>
+                <div class="adhd-meta-item">
+                  <span class="adhd-meta-label"><span class="en">Group size</span><span class="lt">Grupės dydis</span></span>
+                  <span class="adhd-meta-value"><span class="en">8 places</span><span class="lt">8 vietos</span></span>
+                </div>
+                <div class="adhd-meta-item">
+                  <span class="adhd-meta-label"><span class="en">Language</span><span class="lt">Kalba</span></span>
+                  <span class="adhd-meta-value"><span class="en">English / Lithuanian</span><span class="lt">Anglų / Lietuvių</span></span>
+                </div>
+                <div class="adhd-meta-item">
+                  <span class="adhd-meta-label"><span class="en">Price</span><span class="lt">Kaina</span></span>
+                  <span class="adhd-meta-value">€120</span>
+                </div>
+              </div>
+
+          <div class="adhd-cta-block">
+                <a href="https://tally.so/r/GxaoNp" target="_blank" rel="noopener" class="adhd-cta en"><span>Sign up for the group</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+                <a href="https://tally.so/r/KYA8Ak" target="_blank" rel="noopener" class="adhd-cta lt"><span>Užsirašyti į grupę</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+        </div>
+
+        <ol class="adhd-weeks">
+          <li class="adhd-week">
+            <span class="adhd-num">01</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">Understanding the ADHD brain</span><span class="lt">Kaip veikia ADHD smegenys</span></h3>
+              <p class="adhd-week-text"><span class="en">What is actually established, what a diagnosis involves, and what is only noise.</span><span class="lt">Kas iš tikrųjų žinoma, ką apima diagnozė ir kas tėra triukšmas.</span></p>
+            </div>
+          </li>
+          <li class="adhd-week">
+            <span class="adhd-num">02</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">Getting started</span><span class="lt">Kaip pradėti</span></h3>
+              <p class="adhd-week-text"><span class="en">Task initiation, time and follow-through, for when knowing what to do isn't the problem.</span><span class="lt">Užduočių inicijavimas, laikas ir užbaigimas, kai žinojimas, ką daryti, nėra problema.</span></p>
+            </div>
+          </li>
+          <li class="adhd-week">
+            <span class="adhd-num">03</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">Emotions</span><span class="lt">Emocijos</span></h3>
+              <p class="adhd-week-text"><span class="en">What does the research say about intensity, mood fluctuations and regulation of emotions in people with ADHD.</span><span class="lt">Ką tyrimai sako apie intensyvumą, nuotaikų kaitą ir emocijų reguliaciją ADHD turintiems žmonėms.</span></p>
+            </div>
+          </li>
+          <li class="adhd-week">
+            <span class="adhd-num">04</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">Me in relation to others</span><span class="lt">Aš santykyje su kitu</span></h3>
+              <p class="adhd-week-text"><span class="en">Relationships, masking and deciding whom to open up to.</span><span class="lt">Santykiai ir kaukės – kada ir kam atsiverti.</span></p>
+            </div>
+          </li>
+          <li class="adhd-week">
+            <span class="adhd-num">05</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">Self-acceptance</span><span class="lt">Savęs priėmimas</span></h3>
+              <p class="adhd-week-text"><span class="en">How to live a good life with the brain you have, rather than trying to change yourself completely.</span><span class="lt">Kaip gyventi laimingą gyvenimą su tokiomis smegenimis, kurias turite, vietoj bandymo save kardinaliai pakeisti.</span></p>
+            </div>
+          </li>
+          <li class="adhd-week">
+            <span class="adhd-num">06</span>
+            <div>
+              <h3 class="adhd-week-title"><span class="en">What managed ADHD looks like</span><span class="lt">Kaip atrodo gerai valdomas ADHD</span></h3>
+              <p class="adhd-week-text"><span class="en">The reality of well-managed ADHD and sustained long-term psychological well-being.</span><span class="lt">Kaip atrodo psichologinė gerovė su ADHD ilgalaikiame kontekste?</span></p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <!-- RESOURCES -->
   <section id="resources">
     <div class="doodle" style="top:40px; right:40px; width:128px; height:182px; opacity:0.14;">
@@ -510,15 +636,15 @@
       <img src="motif-cloud-swirl.png" alt="" />
     </div>
     <div class="section-inner">
-      <p class="section-label en">Blog & Resources</p>
+      <p class="section-label en">Blog &amp; Resources</p>
       <p class="section-label lt">Tinklaraštis ir šaltiniai</p>
-      <h2 class="section-title en">Writing & <em>useful links</em>.</h2>
+      <h2 class="section-title en">Writing &amp; <em>useful links</em>.</h2>
       <h2 class="section-title lt">Straipsniai ir <em>naudingi šaltiniai</em>.</h2>
       <p class="resources-intro en">A collection of research, videos, and resources related to emotion regulation, mood, and mental health — for clients, curious readers, and fellow practitioners.</p>
       <p class="resources-intro lt">Tyrimų, vaizdo įrašų ir šaltinių rinkinys apie emocijų reguliavimą, nuotaiką ir psichinę sveikatą — klientams, skaitytojams ir kolegoms.</p>
       <div class="resources-grid">
         <div>
-          <p class="resources-section-title en">Research & reading</p>
+          <p class="resources-section-title en">Research &amp; reading</p>
           <p class="resources-section-title lt">Tyrimai ir šaltiniai</p>
           <div class="resource-links">
             <a href="https://doi.org/10.3389/fpsyt.2024.1518106" target="_blank" class="resource-link">
@@ -611,27 +737,24 @@
           <p class="section-label lt">Kontaktai</p>
           <h2 class="section-title en">Let's see if we're<br />a good <em>fit</em>.</h2>
           <h2 class="section-title lt">Pažiūrėkime, ar<br /><em>tinkame</em> vienas kitam.</h2>
-          <p class="en">The first step is simple — send me a message or book a free 20-minute intro call. I'll get back to you within 2 working days.</p>
-          <p class="lt">Pirmas žingsnis paprastas — užpildykite formą arba užsiregistruokite nemokamam pokalbiui. Atsakysiu per 2 darbo dienas.</p>
+          <p class="en">The first step is simple — send me a message or book a free 20-minute introductory call. During this conversation, we will briefly explore what brings you here, start forming the main concerns that could be suitable for psychological consultation, and see whether my approach feels like the right fit for you. I'll get back to you within 2 working days.</p>
+          <p class="lt">Pirmas žingsnis paprastas — parašykite man arba užsiregistruokite nemokamam 20 minučių įvadiniam pokalbiui. Šio pokalbio metu trumpai pasikalbėsime apie tai, kas Jus atvedė, pradėsime geriau suprasti pagrindinius klausimus ar sunkumus, su kuriais norėtumėte dirbti, ir kartu įvertinsime, ar mano požiūris bei darbo būdas atliepia tai, ko ieškote. Atsakysiu per 2 darbo dienas.</p>
           <div class="contact-details">
             <div class="contact-detail">
-              <div class="contact-detail-icon">✉</div>
               <a href="mailto:luka.keme@gmail.com">luka.keme@gmail.com</a>
             </div>
             <div class="contact-detail">
-              <div class="contact-detail-icon">🌍</div>
-              <span class="en">Online worldwide · English & Lithuanian</span>
+              <span class="en">Online worldwide · English &amp; Lithuanian</span>
               <span class="lt">Internetu · Anglų ir lietuvių kalbomis</span>
             </div>
             <div class="contact-detail">
-              <div class="contact-detail-icon">🏢</div>
               <span class="en">In-person in Kaunas · <a href="https://konsultuojam.lt" target="_blank">konsultuojam.lt</a></span>
               <span class="lt">Gyvai Kaune · <a href="https://konsultuojam.lt" target="_blank">konsultuojam.lt</a></span>
             </div>
           </div>
           <div class="contact-cta-spacer">
-            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en">📅 Book a free intro call</a>
-            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt">📅 Užsiregistruoti nemokamam pokalbiui</a>
+            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn en"><span>Book a free intro call</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a href="https://calendly.com/luka-keme/30min" target="_blank" class="calendly-btn lt"><span>Užsiregistruoti nemokamam pokalbiui</span> <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           </div>
         </div>
         <form name="contact" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field" style="display:flex; flex-direction:column; padding-top: calc(0.88rem * 1.4 + 2.8rem);" id="contact-form">
@@ -639,31 +762,23 @@
           <p style="display:none;"><input name="bot-field" /></p>
           <div class="form-row">
             <div>
-              <label for="name">
-                <span class="en">Your name</span><span class="lt">Jūsų vardas</span>
-              </label>
+              <label for="name"><span class="en">Your name</span><span class="lt">Jūsų vardas</span></label>
               <input type="text" id="name" name="Your name" required />
             </div>
             <div>
-              <label for="email">
-                <span class="en">Email</span><span class="lt">El. paštas</span>
-              </label>
+              <label for="email"><span class="en">Email</span><span class="lt">El. paštas</span></label>
               <input type="email" id="email" name="Email" required />
             </div>
           </div>
           <div>
-            <label for="language">
-              <span class="en">Preferred language</span><span class="lt">Pageidaujama kalba</span>
-            </label>
+            <label for="language"><span class="en">Preferred language</span><span class="lt">Pageidaujama kalba</span></label>
             <select id="language" name="Preferred language">
               <option value="English">English</option>
               <option value="Lithuanian">Lithuanian / Lietuvių</option>
             </select>
           </div>
           <div>
-            <label for="message">
-              <span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span>
-            </label>
+            <label for="message"><span class="en">What brings you here?</span><span class="lt">Kas jus čia atveda?</span></label>
             <textarea id="message" name="What brings you here" required></textarea>
           </div>
           <div class="form-actions">
@@ -682,7 +797,7 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Luka Kemežytė</span>
-    <span class="en">Clinical Psychologist · Online & Kaunas · luka-keme.com</span>
+    <span class="en">Clinical Psychologist · Online &amp; Kaunas · luka-keme.com</span>
     <span class="lt">Klinikinė psichologė · Internetu ir Kaune · luka-keme.com</span>
     <span>© 2026</span>
   </footer>
@@ -698,9 +813,9 @@
       document.querySelectorAll('.lt').forEach(el => {
         el.style.display = lang === 'lt' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
       });
+      requestAnimationFrame(alignGroupsCTA);
     }
 
-    // Form submission
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -714,13 +829,31 @@
         form.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
         const success = document.getElementById('form-success');
         success.style.display = 'block';
-        // Show correct language in success message
         success.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
         success.querySelectorAll('.lt').forEach(el => el.style.display = lang === 'lt' ? 'block' : 'none');
       } catch (error) {
         alert('Something went wrong. Please email luka.keme@gmail.com directly.');
       }
     });
+
+    // Align the group sign-up button with the divider line above the last (6th) session
+    function alignGroupsCTA() {
+      var section = document.getElementById('groups');
+      if (!section) return;
+      var weeks = section.querySelectorAll('.adhd-week');
+      var cta = section.querySelector('.adhd-cta-block');
+      if (!weeks.length || !cta) return;
+      cta.style.marginBottom = '';
+      if (window.innerWidth <= 860) return;
+      var last = weeks[weeks.length - 1];
+      var offset = last.parentElement.getBoundingClientRect().bottom
+                 - last.getBoundingClientRect().top
+                 - cta.offsetHeight;
+      if (offset > 0) cta.style.marginBottom = offset + 'px';
+    }
+    window.addEventListener('load', alignGroupsCTA);
+    window.addEventListener('resize', alignGroupsCTA);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignGroupsCTA);
   </script>
 </body>
 </html>
