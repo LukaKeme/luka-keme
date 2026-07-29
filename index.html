@@ -275,7 +275,8 @@
     .footer-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--cream); }
 
     /* LANG TOGGLE */
-    .lt { display: none; }
+    body:not(.lang-lt) .lt { display: none; }
+    body.lang-lt .en { display: none; }
 
     /* ANIMATIONS */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
@@ -806,13 +807,12 @@
     let lang = 'en';
     function toggleLang() {
       lang = lang === 'en' ? 'lt' : 'en';
+      document.body.classList.toggle('lang-lt', lang === 'lt');
       document.querySelector('.nav-lang').textContent = lang === 'en' ? 'LT' : 'EN';
-      document.querySelectorAll('.en').forEach(el => {
-        el.style.display = lang === 'en' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
-      });
-      document.querySelectorAll('.lt').forEach(el => {
-        el.style.display = lang === 'lt' ? (el.tagName === 'SPAN' ? 'inline' : 'block') : 'none';
-      });
+      document.documentElement.lang = lang;
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url);
       requestAnimationFrame(alignGroupsCTA);
     }
 
@@ -829,8 +829,6 @@
         form.querySelectorAll('input, textarea, select').forEach(el => el.value = '');
         const success = document.getElementById('form-success');
         success.style.display = 'block';
-        success.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-        success.querySelectorAll('.lt').forEach(el => el.style.display = lang === 'lt' ? 'block' : 'none');
       } catch (error) {
         alert('Something went wrong. Please email luka.keme@gmail.com directly.');
       }
@@ -854,6 +852,13 @@
     window.addEventListener('load', alignGroupsCTA);
     window.addEventListener('resize', alignGroupsCTA);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignGroupsCTA);
+
+    // Open a specific language directly via URL, e.g. luka-keme.com/?lang=lt
+    (function () {
+      var wanted = new URLSearchParams(location.search).get('lang');
+      if (wanted === 'lt' && lang !== 'lt') toggleLang();
+      else if (wanted === 'en' && lang !== 'en') toggleLang();
+    })();
   </script>
 </body>
 </html>
