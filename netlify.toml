@@ -1,0 +1,3 @@
+# The new site lives in site/. Only that folder is published, so notes and source files elsewhere in the repo stay private.
+[build]
+  publish = "site"
