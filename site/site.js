@@ -84,3 +84,19 @@
       });
   });
 })();
+
+// Home topics: pointing at a topic brings up its doodle on the left
+document.querySelectorAll('.topics').forEach(function(sec){
+  var stage=sec.querySelector('.stage'); if(!stage) return;
+  var imgs=[].slice.call(stage.children), items=[].slice.call(sec.querySelectorAll('.toc a'));
+  function show(i){
+    imgs.forEach(function(im,j){im.classList.toggle('on',j===i)});
+    items.forEach(function(a,j){a.classList.toggle('on',j===i)});
+  }
+  items.forEach(function(a,i){
+    a.addEventListener('pointerenter',function(){show(i)});
+    a.addEventListener('focus',function(){show(i)});
+    if(!a.hasAttribute('href')) a.addEventListener('click',function(){show(i)});
+  });
+  show(0);
+});
