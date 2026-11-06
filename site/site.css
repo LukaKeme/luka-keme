@@ -490,3 +490,7 @@ dl.rows dd{margin:0}
 /* Text links answer the pointer the same way the menu does */
 a:not(.book):not(.catch){transition:text-decoration-color .2s ease,text-decoration-thickness .2s ease}
 a:not(.book):not(.catch):not(.item):hover{text-decoration-color:var(--mark);text-decoration-thickness:4px}
+
+/* Two equal registration buttons; an email address beside a mail button, for when no mail app opens */
+.pair{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.addr{margin-top:12px;font-size:var(--t5);color:var(--ink-soft)}
