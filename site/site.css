@@ -75,7 +75,7 @@ p{text-wrap:pretty;max-width:58ch}
 .hero .catch .book{white-space:nowrap}
 .hero .catch small{font-size:var(--t5);color:var(--ink-soft)}
 .hero .catch:hover .book{background-size:100% 100%;color:var(--fill-ink)}
-.intro{padding-top:48px;padding-bottom:80px;max-width:none;margin:0;padding-left:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)))}
+.intro{padding-top:48px;padding-bottom:24px;max-width:none;margin:0;padding-left:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)))}
 .intro > div{max-width:calc(var(--dx) + .86 * var(--dw) - 200px - max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter))))}
 .intro h1{max-width:13em}
 .intro p{margin-top:22px;font-size:var(--t3);line-height:1.45;max-width:28em;color:var(--ink-soft)}
