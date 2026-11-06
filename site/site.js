@@ -9,10 +9,15 @@
     nav.id = nav.id || "site-nav";
     btn.setAttribute("aria-controls", nav.id);
     btn.setAttribute("aria-expanded", "false");
-    btn.addEventListener("click", function () {
-      var open = top.classList.toggle("open");
+    var setOpen = function (open) {
+      top.classList.toggle("open", open);
       btn.setAttribute("aria-expanded", String(open));
       btn.textContent = open ? (lt ? "Uždaryti" : "Close") : (lt ? "Meniu" : "Menu");
+    };
+    btn.addEventListener("click", function () { setOpen(!top.classList.contains("open")); });
+    // Escape closes the open menu and puts focus back on its button
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && top.classList.contains("open")) { setOpen(false); btn.focus(); }
     });
   }
 
